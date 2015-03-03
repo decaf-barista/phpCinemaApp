@@ -1,0 +1,50 @@
+body{
+    font-family: 'Century Gothic';
+    font-weight: 500;
+    margin-left: auto;
+    margin-right:auto;
+    width:960px;
+    padding-left: 240px;
+
+}
+h1{ 
+    font-family: 'Century Gothic';
+    text-decoration: none;
+    font-weight: 500;
+}
+input {
+	background: white;
+	border: 1px solid #ffa853;//makes the input fileds have orange border and makes them rounded//
+	border-radius: 5px;
+	float: left;
+	padding: 5px 10px;
+	width: 165px;
+	outline: none;
+}
+span{
+    margin-left: 20px;
+    color: #E80C7A;
+}
+.left
+{
+    float:right;
+}
+.right
+{
+    float:left;
+}
+.toolbar
+{
+    padding-bottom:50px;
+}
+a
+{
+    background: white;
+    border: 1px solid #ffa853;//makes the input fileds have orange border and makes them rounded//
+    border-radius: 5px;
+    float: left;
+    padding: 5px 10px;
+    outline: none;
+    text-decoration: none;
+    color: black;
+}
