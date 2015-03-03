@@ -16,6 +16,8 @@ require 'ensureUserLoggedIn.php';
     </head>
     <body>
         <?php require 'toolbar.php' ?>
+        <?php require 'header.php' ?>
+        <?php require 'navbar.php' ?>`
         <h1>Create Screen Form</h1>
         
         <form id="createScreenForm" action="createScreen.php"  method="POST"><!--submits data to be processed in CreateScreen(php validation) and validateCreateScreen(js validation-->
@@ -55,6 +57,6 @@ require 'ensureUserLoggedIn.php';
             </table>
 
         </form>
-        
+        <?php require 'footer.php' ?>        
     </body>
 </html>

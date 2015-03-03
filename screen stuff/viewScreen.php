@@ -1,6 +1,5 @@
 <?php
 //N00132070
-require_once 'Screen.php';
 require_once 'Connection.php';
 require_once 'ScreenTableGateway.php';
 
@@ -31,6 +30,8 @@ $statement = $gateway->getScreenById($screenID);
     </head>
     <body>
         <?php require 'toolbar.php' ?>
+        <?php require 'header.php' ?>
+        <?php require 'navbar.php' ?>`
         <?php
         if (isset($message)) {
         echo '<p>'.$message.'</p>';
@@ -60,5 +61,6 @@ $statement = $gateway->getScreenById($screenID);
             <a class="deleteScreen" href="deleteScreen.php?screenID=<?php echo $row['screenID']; ?>">
                 Delete Screen</a>
         </p>
+        <?php require 'footer.php' ?>
     </body>
 </html>

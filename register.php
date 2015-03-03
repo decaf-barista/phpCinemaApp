@@ -7,6 +7,9 @@
         <script type="text/javascript" src="js/register.js"></script>
     </head>
     <body>
+        <?php require 'toolbar.php' ?>
+        <?php require 'header.php' ?>
+        <?php require 'navbar.php' ?>`
         <form id="registerForm" action="checkRegister.php" method="POST"><!--submits data to be processed in checkRegister-->
             <table border="0">
                 <tbody>
@@ -59,6 +62,6 @@
             </table>
 
         </form>
-       
+        <?php require 'footer.php' ?>
     </body>
 </html>

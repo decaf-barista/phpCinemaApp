@@ -1,5 +1,4 @@
  <?php
-require_once 'Screen.php';
 require_once 'Connection.php';
 require_once 'ScreenTableGateway.php';
 
@@ -39,6 +38,8 @@ Amy Meagher N00130270
     </head>
     <body>
         <?php require 'toolbar.php' ?>
+        <?php require 'header.php' ?>
+        <?php require 'navbar.php' ?>`
         <?php
             if (isset($errorMessage)) {
                 echo '<p>Error: ' . $errorMessage . '</p>';
@@ -92,5 +93,6 @@ Amy Meagher N00130270
             </table>
 
         </form>
+        <?php require 'footer.php' ?>
     </body>
 </html>

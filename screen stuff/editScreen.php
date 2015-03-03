@@ -1,5 +1,4 @@
 <?php
-require_once 'Screen.php';
 require_once 'Connection.php';
 require_once 'ScreenTableGateway.php';
 

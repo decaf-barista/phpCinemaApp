@@ -1,5 +1,4 @@
 <?php
-require_once 'Screen.php';//acquire the screen class//
 require_once 'Connection.php';
 require_once 'ScreenTableGateway.php';
 
@@ -24,33 +23,9 @@ $statement = $gateway->getScreens();
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-        <?php 
-        if (isset($message)) {
-            echo '<p>'.$message.'</p>';
-        }
-        ?>
-        <table> <!--info table-->
-            <thead>
-                <tr>
-                    <th>Screen ID</th>
-                    <th>Number of Seats</th>
-                    <th>Number of Fire Exits</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $row = $statement->fetch(PDO::FETCH_ASSOC);
-                while ($row) {
-                    echo '<tr>';//gets the info from createScreenForm and inputs it to the table// 
-                    echo '<td>' . $row['screenID'] . '</td>';
-                    echo '<td>' . $row['seatNumber'] . '</td>';
-                    echo '<td>' . $row['fireExits'] . '</td>';
-                    echo '</tr>';
-                    
-                    $row = $statement->fetch(PDO::FETCH_ASSOC);
-                }
-                ?>
-            </tbody>
-        </table>
+        <?php require 'header.php' ?>
+        <?php require 'navbar.php' ?>`
+        <p>Home Page</p>
+        <?php require 'footer.php' ?>
     </body>
 </html>

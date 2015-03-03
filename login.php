@@ -6,6 +6,9 @@
         <link rel="stylesheet" type="text/css" href="style.css"><!--css-->
     </head>
     <body>
+        <?php require 'toolbar.php' ?>
+        <?php require 'header.php' ?>
+        <?php require 'navbar.php' ?>`
         <?php
         if (!isset($username)) {
             $username = '';
@@ -59,5 +62,6 @@
             </table>
 
         </form>
+        <?php require 'footer.php' ?>        
     </body>
 </html>
