@@ -1,6 +1,6 @@
 <?php
 require_once 'Connection.php';
-require_once 'ScreenTableGateway.php';
+require_once 'MovieTableGateway.php';
 
 
 $id = session_id();
@@ -9,9 +9,9 @@ if ($id == "") {
 }
 
 $connection = Connection::getInstance();
-$gateway = new ScreenTableGateway($connection);
+$gateway = new MovieTableGateway($connection);
 
-$statement = $gateway->getScreens();
+$statement = $gateway->getMovies();
 ?>
 <!DOCTYPE html>
 <html>

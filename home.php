@@ -1,6 +1,6 @@
 <?php
 require_once 'Connection.php';
-require_once 'ScreenTableGateway.php';
+require_once 'MovieTableGateway.php';
 require 'ensureUserLoggedIn.php';
 
 $id = session_id();
@@ -9,9 +9,9 @@ if ($id == "") {
 }
 
 $connection = Connection::getInstance();
-$gateway = new ScreenTableGateway($connection);
+$gateway = new MovieTableGateway($connection);
 
-$statement = $gateway->getScreens();
+$statement = $gateway->getMovies();
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@ $statement = $gateway->getScreens();
         <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script type="text/javascript" src="js/screen.js"></script>
+        <!--<script type="text/javascript" src="js/screen.js"></script>-->
     </head>
     <body>
         <?php require 'toolbar.php' ?>
