@@ -1,10 +1,17 @@
 <?php
+require_once 'connection.php';
+require_once 'GenreTableGateway.php';
 $id = session_id();
 if ($id == "") {
     session_start();
 }
 
 require 'ensureUserLoggedIn.php';
+$conn = Connection::getInstance();
+$genreGateway = new GenreTableGateway($conn);
+
+
+$genres = $genreGateway->getGenres();
 ?>
 <!DOCTYPE html>
 <html>
@@ -103,14 +110,17 @@ require 'ensureUserLoggedIn.php';
                     <tr>
                         <td>Genre</td>
                         <td>
-                            <input type="text" name="genre" value="" />
-                            <span id="genreError" class="error"><!--inside span elements the error messages will be displayed-->
+                            <select name=""genre_name>
+                                <option value="-1">Unknown</option>
                                 <?php
-                                if (isset($errorMessage) && isset($errorMessage['genre'])) {
-                                    echo $errorMessage['genre'];
+                                $g = $genres->fetch(PDO::FETCH_ASSOC);
+                                while($g)
+                                {
+                                    echo '<option vlaue="'. $g['name'].'">' .$g['genreName'] . '</option>';
+                                    $g = $genres->fetch(PDO::FETCH_ASSOC);
                                 }
                                 ?>
-                            </span>
+                            </select>
                         </td>
                     </tr>
                     <tr>

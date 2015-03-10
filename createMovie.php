@@ -18,7 +18,7 @@ $runTime = filter_input(INPUT_POST, 'runTime', FILTER_SANITIZE_STRING);
 $classification = filter_input(INPUT_POST, 'classification', FILTER_SANITIZE_STRING);
 $directorFName = filter_input(INPUT_POST, 'directorFName', FILTER_SANITIZE_STRING);
 $directorLName = filter_input(INPUT_POST, 'directorLName', FILTER_SANITIZE_STRING);
-$genre = filter_input(INPUT_POST, 'genre', FILTER_SANITIZE_STRING);
+$genre;
 
 $errorMessage = array();
 if ($title === FALSE || $title === '') {
@@ -45,12 +45,8 @@ if ($directorLName === FALSE || $directorLName === '') {
     $errorMessage['directorLName'] = 'Director last name must not be blank<br/>';
 }
 
-if ($genre === FALSE || $genre === '') {
-    $errorMessage['genre'] = 'Genre must not be blank<br/>';
-}
-
 if (empty($errorMessage)) {
-    $gateway->insertMovie( $title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre);
+    $gateway->insertMovie($title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre);
 
     header('Location: home.php');
 }
