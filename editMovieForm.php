@@ -1,15 +1,28 @@
 <?php
 require_once 'connection.php';
 require_once 'GenreTableGateway.php';
+require_once 'MovieTableGateway.php';
+require 'ensureUserLoggedIn.php';
+
 $id = session_id();
 if ($id == "") {
     session_start();
 }
 
-require 'ensureUserLoggedIn.php';
+if (!isset($_GET) || !isset($_GET['movieID'])) {
+    die('Invalid request');
+}
+$movieID = $_GET['movieID'];
+
 $conn = Connection::getInstance();
+$movieGateway = new MovieTableGateway($conn);
 $genreGateway = new GenreTableGateway($conn);
 
+$movies = $movieGateway->getMovieById($movieID);
+if ($movies->rowCount() !== 1) {
+    die("Illegal request");
+}
+$movie = $movies->fetch(PDO::FETCH_ASSOC);
 
 $genres = $genreGateway->getGenres();
 ?>
@@ -27,13 +40,18 @@ $genres = $genreGateway->getGenres();
         <?php require 'navbar.php' ?>`
         <h1>Create Screen Form</h1>
         
-        <form id="createMovieForm" action="createMovie.php"  method="POST"><!--submits data to be processed in CreateMovie(php validation)-->
+        <form id="editMovieForm" action="editMovie.php"  method="POST"><!--submits data to be processed in CreateMovie(php validation)-->
             <table border="0">
                 <tbody>
                     <tr>
                         <td>Title</td>
                         <td>
-                            <input type="text" name="title" value="" />
+                            <input type="text" name="title" value="<?php
+                                if (isset($_POST) && isset($_POST['title'])) {
+                                    echo $_POST['title'];
+                                }
+                                else echo $movie['title'];
+                            ?>" />
                             <span id="titleError" class="error"><!--inside span elements the error messages will be displayed-->
                                 <?php
                                 if (isset($errorMessage) && isset($errorMessage['title'])) {
@@ -45,7 +63,12 @@ $genres = $genreGateway->getGenres();
                     <tr>
                         <td>Movie Year</td>
                         <td>
-                            <input type="text" name="movieYear" value="" />
+                            <input type="text" name="movieYear" value="<?php
+                                if (isset($_POST) && isset($_POST['movieYear'])) {
+                                    echo $_POST['movieYear'];
+                                }
+                                else echo $movie['movieYear'];
+                            ?>" />
                             <span id="movieYearError" class="error"><!--inside span elements the error messages will be displayed-->
                                 <?php
                                 if (isset($errorMessage) && isset($errorMessage['movieYear'])) {
@@ -58,7 +81,12 @@ $genres = $genreGateway->getGenres();
                     <tr>
                         <td>Run Time</td>
                         <td>
-                            <input type="text" name="runTime" value="" />
+                            <input type="text" name="runTime" value="<?php
+                                if (isset($_POST) && isset($_POST['runTime'])) {
+                                    echo $_POST['runTime'];
+                                }
+                                else echo $movie['runTime'];
+                            ?>" />
                             <span id="runTimeError" class="error"><!--inside span elements the error messages will be displayed-->
                                 <?php
                                 if (isset($errorMessage) && isset($errorMessage['runTime'])) {
@@ -71,7 +99,12 @@ $genres = $genreGateway->getGenres();
                     <tr>
                         <td>Classification</td>
                         <td>
-                            <input type="text" name="classification" value="" />
+                            <input type="text" name="classification" value="<?php
+                                if (isset($_POST) && isset($_POST['classification'])) {
+                                    echo $_POST['classification'];
+                                }
+                                else echo $movie['classification'];
+                            ?>" />
                             <span id="classificationError" class="error"><!--inside span elements the error messages will be displayed-->
                                 <?php
                                 if (isset($errorMessage) && isset($errorMessage['classification'])) {
@@ -84,7 +117,12 @@ $genres = $genreGateway->getGenres();
                     <tr>
                         <td>Director First Name</td>
                         <td>
-                            <input type="text" name="directorFName" value="" />
+                            <input type="text" name="directorFName" value="<?php
+                                if (isset($_POST) && isset($_POST['directorFName'])) {
+                                    echo $_POST['directorFName'];
+                                }
+                                else echo $movie['directorFName'];
+                            ?>" />
                             <span id="directorFNameError" class="error"><!--inside span elements the error messages will be displayed-->
                                 <?php
                                 if (isset($errorMessage) && isset($errorMessage['directorFName'])) {
@@ -97,7 +135,12 @@ $genres = $genreGateway->getGenres();
                     <tr>
                         <td>Director Last Name</td>
                         <td>
-                            <input type="text" name="directorLName" value="" />
+                            <input type="text" name="directorLName" value="<?php
+                                if (isset($_POST) && isset($_POST['directorLName'])) {
+                                    echo $_POST['directorLName'];
+                                }
+                                else echo $movie['directorLName'];
+                            ?>" />
                             <span id="directorLNameError" class="error"><!--inside span elements the error messages will be displayed-->
                                 <?php
                                 if (isset($errorMessage) && isset($errorMessage['directorLName'])) {
@@ -116,7 +159,12 @@ $genres = $genreGateway->getGenres();
                                 $g = $genres->fetch(PDO::FETCH_ASSOC);
                                 while($g)
                                 {
-                                    echo '<option value="'. $g['genreName'].'">' .$g['genreName'] . '</option>';
+                                    $selected = "";
+                                    if($g['genreName']==$movie['genre'])
+                                    {
+                                        $selected = "selected";
+                                    }
+                                    echo '<option value="'. $g['genreName'].'" ' . $selected. '>' .$g['genreName'] . '</option>';
                                     $g = $genres->fetch(PDO::FETCH_ASSOC);
                                 }
                                 ?>
@@ -125,7 +173,7 @@ $genres = $genreGateway->getGenres();
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" value="Create Movie" name="createMovie" />
+                            <input type="submit" value="Update Movie" name="updateMovie" />
                         </td>
                     </tr>
                 </tbody>

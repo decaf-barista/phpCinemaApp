@@ -9,14 +9,14 @@ class movieTableGateway {
     }
     
     public function getMovies() {
-        //executes a query to get all of the screens
+        //executes a query to get all of the movies
         $sqlQuery = "SELECT * FROM movie";
         
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
         
         if(!$status) {
-            die("Could not retrieve screens");
+            die("Could not retrieve movies");
         }
         
         return $statement;
@@ -24,8 +24,8 @@ class movieTableGateway {
     }
     
     public function getMovieById($movieID) {
-        //execue a query to get the screen with the specific screen number
-        $sqlQuery = "SELECT * FROM movie WHERE screenID = :movieID";
+        //execue a query to get the movie with the specific movie number
+        $sqlQuery = "SELECT * FROM movie WHERE movieID = :movieID";
         
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
@@ -34,12 +34,12 @@ class movieTableGateway {
        $status = $statement->execute($params); 
        
        if(!$status) {
-           die("Could not retrieve screen");
+           die("Could not retrieve movie");
        }
        
        return $statement;
     }
-    public function insertMovie($movieID, $title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre) {
+    public function insertMovie($title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre) {
         $sqlInsert = "INSERT movie(title, movieYear,runTime,classification, directorFName, directorLName, genre ) "
             . "VALUES (:title, :movieYear, :runTime, :classification, :directorFName, :directorLName, :genre)";
         
@@ -58,14 +58,14 @@ class movieTableGateway {
        if(!$status) {
            die("Could not insert new movie");
        }
-       $id = $this->connection->lastInsertId();
+       $movieID = $this->connection->lastInsertId();
        
-       return $id;
+       return $movieID;
     }
     
     public function deleteMovie($movieID){
         
-        $sqlDelete = "DELETE FROM screen WHERE movieID = :movieID";
+        $sqlDelete = "DELETE FROM movie WHERE movieID = :movieID";
         
         $statement = $this->connection->prepare($sqlDelete);
         $params = array (
@@ -95,6 +95,7 @@ class movieTableGateway {
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
             
+            "movieID"=>$id,
             "title" => $t,
             "movieYear" => $my,
             "runTime"=>$rt,

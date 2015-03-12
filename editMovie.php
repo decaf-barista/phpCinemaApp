@@ -1,16 +1,16 @@
 <?php
 require_once 'Connection.php';
 require_once 'MovieTableGateway.php';
+require_once 'GenreTableGateway.php';
+require 'ensureUserLoggedIn.php';
 
 $connection = Connection::getInstance();
-
 $gateway = new MovieTableGateway($connection);
 
 $id = session_id();
 if ($id == "") {
     session_start();
 }
-
 
 $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
 $movieYear = filter_input(INPUT_POST, 'movieYear', FILTER_SANITIZE_NUMBER_INT);
@@ -20,6 +20,10 @@ $directorFName = filter_input(INPUT_POST, 'directorFName', FILTER_SANITIZE_STRIN
 $directorLName = filter_input(INPUT_POST, 'directorLName', FILTER_SANITIZE_STRING);
 $genre = filter_input(INPUT_POST, 'genre', FILTER_SANITIZE_STRING);
 
+if ($genre == -1) {
+    $genre = NULL;
+}
+/*
 $errorMessage = array();
 if ($title === FALSE || $title === '') {
     $errorMessage['title'] = 'Title must not be blank<br/>';
@@ -45,13 +49,13 @@ if ($directorLName === FALSE || $directorLName === '') {
     $errorMessage['directorLName'] = 'Director last name must not be blank<br/>';
 }
 
-if (empty($errorMessage)) {
-    $movieID = $gateway->insertMovie($title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre);
+if (empty($errorMessage)) {*/
+$gateway->updateMovie($movieID, $title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre);
 
-    header('Location: home.php');
-}
+    header('Location: viewMovies.php');
+/*}
 else {
-    require 'createMovieForm.php';
+    require 'editMovieForm.php';
 }
 
 
