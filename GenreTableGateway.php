@@ -9,7 +9,7 @@ class GenreTableGateway {
     }
     
     public function getGenres() {
-        //executes a query to get all of the screens
+        //executes a query to get all of the genres
         $sqlQuery = "SELECT * FROM genre";
         
         $statement = $this->connection->prepare($sqlQuery);
@@ -23,8 +23,8 @@ class GenreTableGateway {
                 
     }
     
-    public function getGenreById($genreID) {
-        //execue a query to get the screen with the specific screen number
+    public function getGenreByName($genreName) {
+        //execue a query to get the genre with the specific genre number
         $sqlQuery = "SELECT * FROM genre WHERE genreName = :genreName";
         
         $statement = $this->connection->prepare($sqlQuery);
@@ -40,7 +40,7 @@ class GenreTableGateway {
        return $statement;
     }
     public function insertGenre($genreName, $description) {
-        //execue a query to get the screen with the specific screen number
+        //execue a query to get the genre with the specific genre name
         $sqlInsert = "INSERT genre(genreName,description ) "
             . "VALUES (:genreName, :description)";
         
@@ -59,7 +59,7 @@ class GenreTableGateway {
     
     public function deleteGenre($genreName){
         
-        $sqlDelete = "DELETE FROM screen WHERE genreName = :genreName";
+        $sqlDelete = "DELETE FROM genre WHERE genreName = :genreName";
         
         $statement = $this->connection->prepare($sqlDelete);
         $params = array (
@@ -76,7 +76,7 @@ class GenreTableGateway {
     }
     public function updateGenre($genreName, $description){
         $sqlQuery=
-                "UPDATE screen SET " .
+                "UPDATE genre SET " .
                 "genreName = :genreName, " .
                 "description = :description " .
                 "WHERE genreName = :genreName";

@@ -32,7 +32,7 @@ $genres = $genreGateway->getGenres();
         <meta charset="UTF-8">
         <title></title>
         <link rel="stylesheet" type="text/css" href="style.css"><!--css-->
-        <script type="text/javascript" src="js/screen.js"></script><!--javascript validation-->
+        <script type="text/javascript" src="js/movie.js"></script><!--javascript validation-->
     </head>
     <body>
         <?php require 'toolbar.php' ?>
