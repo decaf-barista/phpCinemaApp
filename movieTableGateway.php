@@ -82,32 +82,33 @@ class movieTableGateway {
     }
     public function updateMovie($id, $t, $my, $rt, $c, $dfn, $dln, $g){
         $sqlQuery=
-                "UPDATE movie SET " .
-                "title = :title, " .
-                "movieYear = :movieYear " .
-                "runTime = :runTime " .
-                "classification = :classification " .
-                "directorFName = :directorFName " .
-                "directorLName = :directorLName " .
+                "UPDATE movie SET " . 
+                "title = :title, " . 
+                "movieYear = :movieYear, " .
+                "runTime = :runTime, " . 
+                "classification = :classification, " . 
+                "directorFName = :directorFName, " .
+                "directorLName = :directorLName, " .
                 "genre = :genre " .
                 "WHERE movieID = :movieID";
-        
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
-            
-            "movieID"=>$id,
+            "movieID"=> $id,
             "title" => $t,
             "movieYear" => $my,
-            "runTime"=>$rt,
-            "classification"=>$c,
-            "directorFName"=>$dfn,
-            "directorLName"=>$dln,
-            "genre"=>$g
-            
+            "runTime"=> $rt,
+            "classification"=> $c,
+            "directorFName"=> $dfn,
+            "directorLName"=> $dln,
+            "genre"=> $g  
         );
         
         $status = $statement->execute($params);
         
-        return($statement->rowCount() ==1);
+        if(!$status) {
+           die("Could not insert new movie");
+       }
+        
+        return($statement->rowCount() == 1);
     }
 }

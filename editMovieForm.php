@@ -41,6 +41,7 @@ $genres = $genreGateway->getGenres();
         <h1>Create Screen Form</h1>
         
         <form id="editMovieForm" action="editMovie.php"  method="POST"><!--submits data to be processed in CreateMovie(php validation)-->
+            <input type="hidden" name="movieID" value="<?php echo $movieID; ?>" />
             <table border="0">
                 <tbody>
                     <tr>
