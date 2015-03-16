@@ -10,15 +10,15 @@ if ($id == "") {
 
 require 'ensureUserLoggedIn.php';
 
-if (!isset($_GET) || !isset($_GET['genreName'])) {
+if (!isset($_GET) || !isset($_GET['genreID'])) {
     die('Invalid request');
 }
-$genreName = $_GET['genreName'];
+$genreID = $_GET['genreID'];
 
 $connection = Connection::getInstance();
 $gateway = new GenreTableGateway($connection);
 
-$statement = $gateway->getGenreByName($genreName);
+$statement = $gateway->getGenreByID($genreID);
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,6 +42,10 @@ $statement = $gateway->getGenreByName($genreName);
                 <?php
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
                     echo '<tr>';
+                    echo '<td>Genre ID</td>' 
+                    . '<td>' . $row['genreID'] . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
                     echo '<td>Genre Name</td>' 
                     . '<td>' . $row['genreName'] . '</td>';
                     echo '</tr>';
@@ -52,9 +56,9 @@ $statement = $gateway->getGenreByName($genreName);
                 ?>
             </tbody>
         </table>
-        <p><a href="editGenreForm.php?genreName=<?php echo $row['genreName']; ?>">
+        <p><a href="editGenreForm.php?genreID=<?php echo $row['genreID']; ?>">
                 Edit Genre</a>
-            <a class="deleteGenre" href="deleteGenre.php?genreName=<?php echo $row['genreName']; ?>">
+            <a class="deleteGenre" href="deleteGenre.php?genreID=<?php echo $row['genreID']; ?>">
                 Delete Genre</a>
         </p>
         <?php require 'footer.php' ?>

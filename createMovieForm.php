@@ -116,7 +116,7 @@ $genres = $genreGateway->getGenres();
                                 $g = $genres->fetch(PDO::FETCH_ASSOC);
                                 while($g)
                                 {
-                                    echo '<option value="'. $g['genreName'].'">' .$g['genreName'] . '</option>';
+                                    echo '<option value="'. $g['genreID'].'">' .$g['genreName'] . '</option>';
                                     $g = $genres->fetch(PDO::FETCH_ASSOC);
                                 }
                                 ?>

@@ -161,11 +161,11 @@ $genres = $genreGateway->getGenres();
                                 while($g)
                                 {
                                     $selected = "";
-                                    if($g['genreName']==$movie['genre'])
+                                    if($g['genreID']==$movie['genre'])
                                     {
                                         $selected = "selected";
                                     }
-                                    echo '<option value="'. $g['genreName'].'" ' . $selected. '>' .$g['genreName'] . '</option>';
+                                    echo '<option value="'. $g['genreID'].'" ' . $selected. '>' .$g['genreName'] . '</option>';
                                     $g = $genres->fetch(PDO::FETCH_ASSOC);
                                 }
                                 ?>

@@ -23,13 +23,13 @@ class GenreTableGateway {
                 
     }
     
-    public function getGenreByName($genreName) {
+    public function getGenreByID($genreID) {
         //execue a query to get the genre with the specific genre number
-        $sqlQuery = "SELECT * FROM genre WHERE genreName = :genreName";
+        $sqlQuery = "SELECT * FROM genre WHERE genreID = :genreID";
         
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
-            "genreName" => $genreName
+            "genreID" => $genreID
         );
        $status = $statement->execute($params); 
        
@@ -41,7 +41,7 @@ class GenreTableGateway {
     }
     public function insertGenre($genreName, $description) {
         //execue a query to get the genre with the specific genre name
-        $sqlInsert = "INSERT genre(genreName,description ) "
+        $sqlInsert = "INSERT genre(genreName,description) "
             . "VALUES (:genreName, :description)";
         
         $statement = $this->connection->prepare($sqlInsert);
@@ -54,16 +54,18 @@ class GenreTableGateway {
        if(!$status) {
            die("Could not insert new genre");
        }
-       return $statement;
+       $genreID = $this->connection->lastInsertId();
+       
+       return $genreID;
     }
     
-    public function deleteGenre($genreName){
+    public function deleteGenre($genreID){
         
-        $sqlDelete = "DELETE FROM genre WHERE genreName = :genreName";
+        $sqlDelete = "DELETE FROM genre WHERE genreID = :genreID";
         
         $statement = $this->connection->prepare($sqlDelete);
         $params = array (
-            "genreName" => $genreName         
+            "genreID" => $genreID         
         );
         
         $status = $statement->execute($params);
@@ -74,18 +76,19 @@ class GenreTableGateway {
         
        return ($statement->rowCount() ==1);
     }
-    public function updateGenre($genreName, $description){
+    public function updateGenre($genreID, $genreName, $description){
         $sqlQuery=
                 "UPDATE genre SET " .
                 "genreName = :genreName, " .
                 "description = :description " .
-                "WHERE genreName = :genreName";
+                "WHERE genreID = :genreID";
         
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
             
             "genreName" => $genreName,
-            "description" => $description
+            "description" => $description,
+            "genreID" => $genreID
             
         );
         

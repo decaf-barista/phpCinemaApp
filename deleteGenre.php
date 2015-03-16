@@ -11,12 +11,12 @@ if ($id == "") {
 $connection = Connection::getInstance();
 $gateway = new GenreTableGateway($connection);
 
-if (!isset($_GET) || !isset($_GET['genreName'])) {
+if (!isset($_GET) || !isset($_GET['genreID'])) {
     die('Invalid request');
 }
-$genreName = $_GET['genreName'];
+$genreID = $_GET['genreID'];
 
-$gateway->deleteGenre($genreName);
+$gateway->deleteGenre($genreID);
 
 header("Location: viewGenres.php")
 ?>

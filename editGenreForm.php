@@ -9,15 +9,15 @@ if ($id == "") {
 
 require 'ensureUserLoggedIn.php';
 
-if (!isset($_GET) || !isset($_GET['genreName'])) {
+if (!isset($_GET) || !isset($_GET['genreID'])) {
     die('Invalid request');
 }
-$genreName = $_GET['genreName'];
+$genreID = $_GET['genreID'];
 
 $connection = Connection::getInstance();
 $gateway = new GenreTableGateway($connection);
 
-$statement = $gateway->getGenreByName($genreName);
+$statement = $gateway->getGenreByID($genreID);
 if ($statement->rowCount() !== 1) {
     die("Illegal request");
 }
@@ -46,7 +46,7 @@ Amy Meagher N00130270
             }
         ?>  
        <form action="editGenre.php" method="POST" id="editGenreForm"><!--submits data to be processed in CreateGenre(php validation) and validateCreateGenre(js validation-->
-           <input type="hidden" name="genreName" value="<?php echo $genreName; ?>" />
+           <input type="hidden" name="genreID" value="<?php echo $genreID; ?>" />
            <table border="0">
                 <tbody>
                     <tr>

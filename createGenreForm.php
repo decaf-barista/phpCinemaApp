@@ -23,7 +23,7 @@ require 'ensureUserLoggedIn.php';
             <table border="0">
                 <tbody>
                     <tr>
-                        <td>Number of Seats</td>
+                        <td>Genre Name</td>
                         <td>
                             <input type="text" name="genreName" value="" />
                             <span id="genreNameError" class="error"><!--inside span elements the error messages will be displayed-->
@@ -35,7 +35,7 @@ require 'ensureUserLoggedIn.php';
                         </td>
                     </tr>
                     <tr>
-                        <td>Number of Fire Exits</td>
+                        <td>Description</td>
                         <td>
                             <input type="text" name="description" value="" />
                             <span id="descriptionError" class="error"><!--inside span elements the error messages will be displayed-->

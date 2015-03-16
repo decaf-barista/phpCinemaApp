@@ -13,19 +13,19 @@ if ($id == "") {
 
 
 $genreName = filter_input(INPUT_POST, 'genreName', FILTER_SANITIZE_STRING);
-$decription = filter_input(INPUT_POST, 'decription', FILTER_SANITIZE_STRING);
+$description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
 
 $errorMessage = array();
 if ($genreName === FALSE || $genreName === '') {
     $errorMessage['genreName'] = 'Genre name must not be blank<br/>';
 }
 
-if ($decription === FALSE || $decription === '') {
+if ($description === FALSE || $description === '') {
     $errorMessage['decription'] = 'Description must not be blank<br/>';
 }
 
 if (empty($errorMessage)) {
-    $gateway->insertGenre($genreName, $decription);
+    $gateway->insertGenre($genreName, $description);
 
     header('Location: viewGenres.php');
 }

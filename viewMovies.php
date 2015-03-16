@@ -1,6 +1,7 @@
 <?php
 require_once 'Connection.php';
 require_once 'MovieTableGateway.php';
+require_once 'GenreTableGateway.php';
 require 'ensureUserLoggedIn.php';
 
 $id = session_id();
@@ -55,7 +56,7 @@ $statement = $gateway->getMovies();
                     echo '<td>' . $row['classification'] . '</td>';
                     echo '<td>' . $row['directorFName'] . '</td>';
                     echo '<td>' . $row['directorLName'] . '</td>';
-                    echo '<td>' . $row['genre'] . '</td>';
+                    echo '<td>' . $row['genreName'] . '</td>';
                     echo '<td>'
                     .'<a href="viewMovie.php?movieID=' .$row['movieID']. '">View</a> '
                     .'<a class="deleteMovie" href="deleteMovie.php?movieID=' .$row['movieID']. '">Delete</a> '

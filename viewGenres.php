@@ -33,6 +33,7 @@ $statement = $gateway->getGenres();
         <table> <!--info table-->
             <thead>
                 <tr>
+                    <th>Genre ID</th>
                     <th>Genre Name</th>
                     <th>Description</th>
                 </tr>
@@ -41,13 +42,14 @@ $statement = $gateway->getGenres();
                 <?php
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                 while ($row) {
-                    echo '<tr>';//gets the info from createScreenForm and inputs it to the table// 
+                    echo '<tr>';//gets the info from createScreenForm and inputs it to the table//
+                    echo '<td>' . $row['genreID'] . '</td>'; 
                     echo '<td>' . $row['genreName'] . '</td>';
                     echo '<td>' . $row['description'] . '</td>';
                     echo '<td>'
-                    .'<a href="viewGenre.php?genreName=' .$row['genreName']. '">View</a> '
-                    .'<a class="deleteGenre" href="deleteGenre.php?genreName=' .$row['genreName']. '">Delete</a> '
-                    .'<a href="editGenreForm.php?genreName=' .$row['genreName']. '">Edit</a> '
+                    .'<a href="viewGenre.php?genreID=' .$row['genreID']. '">View</a> '
+                    .'<a class="deleteGenre" href="deleteGenre.php?genreID=' .$row['genreID']. '">Delete</a> '
+                    .'<a href="editGenreForm.php?genreID=' .$row['genreID']. '">Edit</a> '
                     . '</td>';
                     echo '</tr>';
                     

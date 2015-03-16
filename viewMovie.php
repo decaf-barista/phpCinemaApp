@@ -71,7 +71,7 @@ $statement = $gateway->getMovieById($movieID);
                     echo '</tr>';
                     echo '<tr>';
                     echo '<td>Genre</td>' 
-                    . '<td>' . $row['genre'] . '</td>';
+                    . '<td>' . $row['genreName'] . '</td>';
                     echo '</tr>';
                 ?>
             </tbody>

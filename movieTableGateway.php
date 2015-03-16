@@ -10,7 +10,8 @@ class movieTableGateway {
     
     public function getMovies() {
         //executes a query to get all of the movies
-        $sqlQuery = "SELECT * FROM movie";
+        $sqlQuery = "SELECT m.*,g.genreName FROM movie m
+        LEFT JOIN genre g ON g.genreID = m.genre";
         
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
@@ -25,7 +26,8 @@ class movieTableGateway {
     
     public function getMovieById($movieID) {
         //execue a query to get the movie with the specific movie number
-        $sqlQuery = "SELECT * FROM movie WHERE movieID = :movieID";
+        $sqlQuery = "SELECT m.*,g.genreName FROM movie m
+        LEFT JOIN genre g ON g.genreID = m.genre WHERE movieID = :movieID";
         
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
@@ -40,7 +42,7 @@ class movieTableGateway {
        return $statement;
     }
     public function insertMovie($title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre) {
-        $sqlInsert = "INSERT movie(title, movieYear,runTime,classification, directorFName, directorLName, genre ) "
+        $sqlInsert = "INSERT movie(title, movieYear, runTime, classification, directorFName, directorLName, genre) "
             . "VALUES (:title, :movieYear, :runTime, :classification, :directorFName, :directorLName, :genre)";
         
         $statement = $this->connection->prepare($sqlInsert);
