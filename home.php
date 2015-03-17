@@ -18,7 +18,7 @@ $statement = $gateway->getMovies();
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="custom.css">
         <!--<script type="text/javascript" src="js/screen.js"></script>-->
     </head>
     <body>

@@ -1,0 +1,475 @@
+.login, .register
+{
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: 20px;
+	text-align: right;
+	font-weight: bold;
+	margin-top: 12px;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+a:hover
+{
+	text-decoration: none;
+	color: inherit;
+
+}
+.register
+{
+	color: #893d62;
+	padding-right: 0px;
+}
+.line
+{
+	height: 3px;
+	width: 100%;
+	background-color: #efefef;
+}
+.logo img
+{
+	height:80px;
+	width:auto;
+	margin-left: -15px
+
+}
+.tagline h1
+{
+	font-family: 'Ubuntu', sans-serif;
+	padding-left: 0;
+}
+/*nav sizes*/
+/*large device, wide screen*/
+@media (min-width: 993px){
+	.navbar
+	{
+		margin-top: -130px;
+	}
+	.tagline h1
+	{
+		margin-top: 40px;
+	}
+	.logo, .navbar-collapse
+	{
+		margin-top: 20px;
+		margin-bottom: 40px;
+	}
+	.navbar-collapse ul li 
+	{
+		list-style-type: none;
+		text-decoration: none;
+		display: inline;
+		font-weight: bold;
+		font-size: 20px;
+		border: solid 5px;
+		padding: 6px 4px;
+		margin-left: 40.1px;
+		margin-right: -10px;
+
+	}
+}
+/*medium devices*/
+@media (max-width: 992px){
+	.navbar
+	{
+		margin-top: -130px;
+	}
+	.logo, .navbar-collapse
+	{
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+	.tagline
+	{	
+		margin-top: 40px;
+	}
+	.navbar-collapse ul li 
+	{
+		list-style-type: none;
+		text-decoration: none;
+		display: inline;
+		font-weight: bold;
+		font-size: 16px;
+		border: solid 5px;
+		padding: 13px 11px;
+		margin-left: 40.1px;
+		margin-right: -10px;
+
+	}
+}
+/*small device*/
+@media (max-width: 767px){
+	.navbar
+	{
+		margin-top: 0px;
+	}
+	.navbar-collapse ul li{
+		border: none;
+		padding: none;
+		margin: none;
+		display: block;
+		overflow: hidden;
+		width: 100%;
+	}
+	.navbar-collapse{
+		position: static;
+	}
+	.tagline
+	{
+		margin-left: 40%
+	}
+	.logo
+	{
+		margin-left: 50%
+	}
+
+}
+/*extra small devices*/
+@media (max-width: 550px){
+	.tagline
+	{
+		margin-left: 23%;
+	}
+	.logo
+	{
+		margin-left:40%;
+	}
+
+}
+/*end of nav sizes*/
+.navbar-toggle
+{
+	border-color:#893d62;
+}
+.icon-bar
+{
+	background-color:#893d62;
+}
+/*end of nav styles*/
+/*jumbotron*/
+.jumbotron
+{
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background-color: #ffffff;
+	overflow: hidden;
+}
+/*end of jumbotron*/
+/*start of main*/
+.main_showing
+{
+	background-color: #333b49;
+	width:100%;
+	margin-top: none;
+}
+#now_showing h2
+{
+	color: white;
+	font-weight: bold;
+	margin-bottom: 20px;
+	
+}
+#now_showing p
+{
+	font-family: Georgia, serif;
+	color: white;
+	
+}
+/*font changes in main*/
+/*now showing h2 changes*/
+/*large screen*/
+@media(min-width: 993px){
+	#now_showing h2
+	{
+		font-size: 45px;
+		margin-top: 50px;
+	}
+}
+/*small screen*/
+@media(max-width:767px){
+	#now_showing h2
+	{
+		font-size: 30px;
+		margin-top: 30px;
+	}
+}
+/*end of now showing h2 font changes*/
+/*now showing p font changes*/
+@media(min-width: 993px){
+	#now_showing p
+	{
+		font-size: 20px;
+		margin-top: 30px;
+		margin-bottom: 60px;
+	}
+}
+@media(max-width: 992px){
+	#now_showing p
+	{
+		font-size: 17px;
+		margin-bottom: 40px;
+	}
+}
+/*end of now showing p font changes*/
+/*end of now showing*/
+/*start of movies*/
+.main_movies
+{
+	margin-top: 100px;
+	z-index: -3;
+}
+@media(min-width: 993px){
+	.col1 img, .col2 img, .col3 img
+	{
+		width: 100%;
+		border: 10px solid #333b49;
+	}
+}
+@media(max-width: 992px){
+	.col1 img, .col2 img, .col3 img
+	{
+		width: 100%;
+		border: 3px solid #333b49;
+	}
+}
+
+
+.col1
+{
+	overflow: hidden;
+}
+
+.ticket
+{
+	font-weight: bold;
+	margin-bottom: 50px;
+	margin-top: 40px;
+        text-align: center;
+	
+}
+
+/*buy tickets button font size changes*/
+/*large*/
+@media(min-width: 1200px){
+	.ticket
+	{
+	padding: 13px 11px;
+	font-size: 17px;
+	
+	width: 60%;
+	margin-left:20%;
+	border: solid 5px;
+	}
+}
+/**/
+@media(max-width: 1200px){
+	.ticket
+	{
+	padding: 13px 11px;
+	font-size: 14px;
+	
+	width: 60%;
+	margin-left:20%;
+	border: solid 5px;
+	}
+}
+@media(max-width: 992px){
+	.ticket
+	{
+		font-size: 14px;
+		border: solid 4px;
+		
+		padding: 10px 6px;
+	}
+}
+/*medium*/
+@media(max-width: 672px){
+	.ticket
+	{
+		font-size: 13px;
+		border: solid 3px;
+		
+		width: 100%;
+		margin-left:0px;
+	}
+}
+/*small device*/
+@media(max-width: 434px){
+	.ticket
+	{
+		border: solid 2px;
+		
+	}
+}
+
+.movie_text/*getting this text to be above the red_image div but underneath the navigation bar without getting the background of the nav bar jump above the nav bar content*/ 
+{
+	background-color: transparent;
+	width:90%;
+	padding-left: 10px;
+	padding-top: 0px;
+}
+.movie_text h3
+{
+	color: #fff;
+	margin-top: -200px;
+}
+.movie_poster
+{
+	background-color: none;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	height: auto;
+	transition:background-color 500ms ease-out 0.5s;
+}
+.movie_poster:hover/*i ahd a lot of trouble trying to get the image to have a rollover style, i tried photoshopping the image(which didn't work and would have been messy. to trying to get the text div to the the one to have the red bg as the rollover style. i could not do this without css because the image change*/
+{
+	background-color: rgba(248, 67, 36, 0.6);/*ease in and out*/
+	transition: background-color 500ms ease-out 0.5s;
+}
+.movie_poster div div/*and what do you know i had even more trouble trying to get this to have a rollover style, this works really well in this case. i achieved what i set out to do*/
+{
+	visibility: hidden;
+	transition: visibility 500ms ease-out 0.5s;
+}
+.movie_poster:hover div div
+{
+	visibility: visible;
+	transition: visibility 500ms ease-out 0.5s;
+}
+/*end of main content*/
+/*start of footer*/
+/*newsletter footer*/
+.newsletter
+{
+	background-color: #893d62;
+}
+.newsletter div h3
+{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
+.newsletter div h4
+{
+	text-align: center;
+	color: white;
+	font-family: Georgia, serif;
+}
+/*sign up to newsletter*/
+@media(min-width: 672px){
+	.newsletter div h3
+	{
+		font-size: 30px;
+		margin-top: 40px;
+	}
+}
+@media(max-width: 672px){
+	.newsletter div h3
+	{
+		font-size: 20px;
+		margin-top: 30px;
+	}
+}
+/*end of sign up to newsletter*/
+/*newsletter tagline*/
+@media(min-width: 900px){
+	.newsletter div h4
+	{
+		font-size: 30px;
+		margin-top: 20px;
+	}
+}
+@media(max-width: 899px){
+	.newsletter div h4
+	{
+		font-size: 20px;
+		margin-top: 30px;
+	}
+}
+/**/
+.newsletter div input
+{
+	border: 3px solid #333b49;
+	height: 50px;
+	margin-top: 7px;
+}
+.newsletter div p{
+	border: 5px solid black;
+	font-size: 22px;
+	font-weight: bold;
+	background-color: white;
+	padding: 13px 11px;
+	text-align: center;
+}
+@media(min-width: 576px){
+	.newsletter div p
+	{
+		
+		margin-left: 40px;
+		
+	}
+}
+@media(max-width: 575px){
+	.newsletter div p
+	{
+		margin-left: none;
+		margin-top: 30px;
+	}
+}
+.footer-links
+{
+	background-color: #333b49;
+}
+.footerLogos ul li 
+{
+	height: auto;
+	width: inherit;
+}
+.footerLogos li{
+	display: inline;
+	text-decoration: none;
+	list-style: none;
+	list-style-type: none;
+}
+.footerLogos ul li img{
+	width: 100%;
+	padding: 0px;
+}
+.footerLogos ul
+{
+	margin-left: 40px;
+	margin-top: 50px;
+}
+.footer-nav ul li
+{
+	margin-top: 50px;
+	list-style-type: none;
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	border-right: 2px solid white;
+	text-align: center;
+	margin-bottom: 60px;
+}
+@media(min-width:570px){
+    font-size: 23px;
+}
+@media(max-width:569px){
+    font-size: 21px;
+}
+/*register page*/
+.window
+{
+    backgound-color: #333b49;
+}
+
+
+
+
+
+
+

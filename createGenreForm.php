@@ -10,7 +10,7 @@ require 'ensureUserLoggedIn.php';
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link rel="stylesheet" type="text/css" href="style.css"><!--css-->
+        <link rel="stylesheet" type="text/css" href="custom.css"><!--css-->
         <script type="text/javascript" src="js/genre.js"></script><!--javascript validation-->
     </head>
     <body>
