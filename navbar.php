@@ -12,13 +12,13 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" data-toggle = "collapse" data-target = ".navHeaderCollapse">
+                    <button class="navbar-toggle collapsed" data-toggle = "collapse" data-target = "#navHeaderCollapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <div class="collapse navbar-collapse navHeaderCollapse">
+                <div class="collapse navbar-collapse" id="navHeaderCollapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="viewMovies.php">MOVIES</a></li>
                         <li><a href="viewScreens.php">SCREENS</a></li>

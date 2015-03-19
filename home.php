@@ -1,6 +1,8 @@
 <?php
 require_once 'Connection.php';
 require_once 'MovieTableGateway.php';
+require_once 'ScreenTableGateway.php';
+require_once 'GenreTableGateway.php';
 require 'ensureUserLoggedIn.php';
 
 $id = session_id();
@@ -10,10 +12,12 @@ if ($id == "") {
 
 $connection = Connection::getInstance();
 $movieGateway = new MovieTableGateway($connection);
-$movieGateway = new MovieTableGateway($connection);
-$movieGateway = new MovieTableGateway($connection);
+$screenGateway = new ScreenTableGateway($connection);
+$genreGateway = new GenreTableGateway($connection);
 
-$statement = $gateway->getMovies();
+$statementMovie = $movieGateway->countMovies();
+$statementScreen = $screenGateway->countScreens();
+$statementGenre = $genreGateway->countGenres();
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +43,10 @@ $statement = $gateway->getMovies();
             echo '<p>'.$message.'</p>';
         }
         ?>
-        <p>Dashboard</p>
+        <?php
+        echo $statementMovie;
+        echo'<p>Amount of movies in the system'
+        ?>
         <?php require 'footer.php' ?>
     </body>
 </html>
