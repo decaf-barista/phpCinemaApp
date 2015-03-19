@@ -41,22 +41,9 @@ else if ($password !== $password2) {
 }
 
 if (empty($errorMessage)) {
-    if (!isset($_SESSION['admins'])) {
-        $admins = array();
-    }
-    else {
-        $admins = $_SESSION['admins'];
-    }
-
-    $admin = new Admin($username, $password);
-
-    $admins[] = $admin;
-
-    $_SESSION['admins'] = $admins;
-    
-    $gateway->insertAdmin($username, $password);
-
-    header('Location: home.php');
+        $gateway->insertAdmin($username, $password);
+        $_SESSION['username'] = $username;
+        header('Location: home.php');   
 }
 else {
     require 'register.php';

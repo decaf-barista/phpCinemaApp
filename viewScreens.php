@@ -16,49 +16,62 @@ $statement = $gateway->getScreens();
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset = "utf-8"><!--lets my browser read and display characters-->
+        <meta name="viewport" content="width=device-width initial-scale=1.0"><!--will scale for the different with of pages-->
+        <!--linking stylesheets-->
+        <link href="css/bootstrap.min.css" rel="stylesheet"><!--using .min so it will be faster, framework style sheet-->
+        <link href="css/custom.css" rel="stylesheet"><!--my own css file-->
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
+        <link rel="shortcut icon" href="images/oscars.png"/>
+        <script src="js/respond.min.js"></script><!--what we downloaded from github needs to be in the head! otherwise not reposive-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <title>TAKE TWO</title>
         <script type="text/javascript" src="js/screen.js"></script>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-       
+
         <?php require 'navbar.php' ?>
-        <?php 
+        <?php
         if (isset($message)) {
-            echo '<p>'.$message.'</p>';
+            echo '<p>' . $message . '</p>';
         }
         ?>
-        <table> <!--info table-->
-            <thead>
-                <tr>
-                    <th>Screen ID</th>
-                    <th>Number of Seats</th>
-                    <th>Number of Fire Exits</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $row = $statement->fetch(PDO::FETCH_ASSOC);
-                while ($row) {
-                    echo '<tr>';//gets the info from createScreenForm and inputs it to the table// 
-                    echo '<td>' . $row['screenID'] . '</td>';
-                    echo '<td>' . $row['seatNumber'] . '</td>';
-                    echo '<td>' . $row['fireExits'] . '</td>';
-                    echo '<td>'
-                    .'<a href="viewScreen.php?screenID=' .$row['screenID']. '">View</a> '
-                    .'<a class="deleteScreen" href="deleteScreen.php?screenID=' .$row['screenID']. '">Delete</a> '
-                    .'<a href="editScreenForm.php?screenID=' .$row['screenID']. '">Edit</a> '
-                    . '</td>';
-                    echo '</tr>';
-                    
+        <div class="container">
+            <a href="createScreenForm.php"><img src="Images/add.png"></a>
+            <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-8 col-lg-offset-2"> <!--info table-->
+                <thead>
+                    <tr>
+                        <th>Screen ID</th>
+                        <th>Number of Seats</th>
+                        <th>Number of Fire Exits</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
-                }
-                ?>
-            </tbody>
-        </table>
-        <p><a href="createScreenForm.php">Create Screen</a></p>
+                    while ($row) {
+                        echo '<tr>'; //gets the info from createScreenForm and inputs it to the table// 
+                        echo '<td>' . $row['screenID'] . '</td>';
+                        echo '<td>' . $row['seatNumber'] . '</td>';
+                        echo '<td>' . $row['fireExits'] . '</td>';
+                        echo '<td>'
+                        . '<a href="viewScreen.php?screenID=' . $row['screenID'] . '"><img src="Images/view.png"></a> '
+                        . '<a class="deleteScreen" href="deleteScreen.php?screenID=' . $row['screenID'] . '"><img src="Images/delete.png"></a> '
+                        . '<a href="editScreenForm.php?screenID=' . $row['screenID'] . '"><img src="Images/edit.png"></a> '
+                        . '</td>';
+                        echo '</tr>';
+
+                        $row = $statement->fetch(PDO::FETCH_ASSOC);
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+            
+        </div>
         <?php require 'footer.php' ?>
     </body>
 </html>

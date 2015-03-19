@@ -8,14 +8,14 @@ class GenreTableGateway {
         $this->connection = $c;
     }
     
-     public function countGenres() {
+    public function countGenres() {
         $sqlQuery = "SELECT COUNT(*) FROM genre;";
                 
         $genreStatement = $this->connection->prepare($sqlQuery);
         $status = $genreStatement->execute();
         
         if(!$status) {
-            die("Could not retrieve screens");
+            die("Could not retrieve genres");
         }
         
         return $genreStatement;       

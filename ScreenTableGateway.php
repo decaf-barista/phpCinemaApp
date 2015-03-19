@@ -10,14 +10,14 @@ class ScreenTableGateway {
     public function countScreens() {
         $sqlQuery = "SELECT COUNT(*) FROM screen;";
                 
-        $screenStatement = $this->connection->prepare($sqlQuery);
-        $status = $screenStatement->execute();
+        $statementScreen = $this->connection->prepare($sqlQuery);
+        $status = $statementScreen->execute();
         
         if(!$status) {
             die("Could not retrieve screens");
         }
         
-        return $screenStatement;       
+        return $statementScreen;       
     }
     public function getScreens() {
         //executes a query to get all of the screens
