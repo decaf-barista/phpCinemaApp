@@ -30,8 +30,8 @@ $statement = $gateway->getGenreByID($genreID);
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-        <?php require 'header.php' ?>
-        <?php require 'navbar.php' ?>`
+       
+        <?php require 'navbar.php' ?>
         <?php
         if (isset($message)) {
         echo '<p>'.$message.'</p>';

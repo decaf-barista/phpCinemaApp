@@ -38,8 +38,8 @@ Amy Meagher N00130270
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-        <?php require 'header.php' ?>
-        <?php require 'navbar.php' ?>`
+        
+        <?php require 'navbar.php' ?>
         <?php
             if (isset($errorMessage)) {
                 echo '<p>Error: ' . $errorMessage . '</p>';

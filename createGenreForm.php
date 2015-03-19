@@ -15,8 +15,8 @@ require 'ensureUserLoggedIn.php';
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-        <?php require 'header.php' ?>
-        <?php require 'navbar.php' ?>`
+      
+        <?php require 'navbar.php' ?>
         <h1>Create Genre Form</h1>
         
         <form id="createGenreForm" action="createGenre.php"  method="POST"><!--submits data to be processed in CreateGenre(php validation) and validateCreateGenre(js validation-->

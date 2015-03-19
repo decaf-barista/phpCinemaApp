@@ -494,7 +494,7 @@ a:hover
 {
     color: #8e8e8e;
 }
-.submit, .form-aside a
+.submit, .form-aside a, .login-aside input
 {
     background-color: white;
     border:3px solid black;
@@ -505,17 +505,26 @@ a:hover
     color: black;
     margin-bottom: 30px;
 }
-.form-aside a
+.form-aside a, .login-aside input
 {
     margin-left: 200px; 
 }
-.form-aside h4
+.form-aside h4, .login-aside h4
 {
     font-size:25px;
     text-align: center;
+}
+.form-aside h4
+{
     margin-top: 160px;
     margin-bottom: 30px;
 }
+.login-aside h4
+{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
 
 
 

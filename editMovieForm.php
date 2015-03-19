@@ -36,8 +36,8 @@ $genres = $genreGateway->getGenres();
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-        <?php require 'header.php' ?>
-        <?php require 'navbar.php' ?>`
+       
+        <?php require 'navbar.php' ?>
         <h1>Create Screen Form</h1>
         
         <form id="editMovieForm" action="editMovie.php"  method="POST"><!--submits data to be processed in CreateMovie(php validation)-->

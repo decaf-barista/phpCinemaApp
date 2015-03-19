@@ -27,11 +27,12 @@
                     <form class="form col-lg-6" action="checkLogin.php" method="POST"><!--submits data to be processed in checkLogin-->
                         <table border="0">
                             <tbody>
-                                <tr><h1>REGISTER</h1></tr>
+                                <tr><h1>LOGIN</h1></tr>
                             <tr>
-                                <td>Username</td>
-                                <td>
-                                    <input type="text"
+                                <td class="col-lg-3"><h3 >Username</h3></td>
+                                <td class="col-lg-3">
+                                    <input class="input"
+                                           type="text"
                                            name="username"
                                            value="<?php echo $username; ?>" />
                                     <span id="usernameError" class="error"><!--inside span error message will display-->
@@ -44,9 +45,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Password</td>
-                                <td>
-                                    <input type="password" name="password" value="" />
+                                <td class="col-lg-3"><h3>Password</h3></td>
+                                <td class="col-lg-3">
+                                    <input class="input" type="password" name="password" value="" />
                                     <span id="passwordError" class="error"><!--inside span error message will display-->
                                         <?php
                                         if (isset($errorMessage) && isset($errorMessage['password'])) {
@@ -59,19 +60,23 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="submit" value="Login" name="login"/>
-                                    <input type="button"
-                                           value="Register"
-                                           name="register"
-                                           onclick="document.location.href = 'register.php'"
-                                           />
-                                    <input type="button" value="Forgot Passward" name="forgot" />
+                                    <input class="submit" type="submit" value="Login" name="login"/>
+                                    
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-
                     </form>
+                    <div class="login-aside col-lg-6">
+                        <h4 >Already have an account?</h4>
+                        <input style="margin-left:210px;" type="button"
+                                           value="Register"
+                                           name="register"
+                                           onclick="document.location.href = 'register.php'"
+                                           />
+                        <h4>Forget something?</h4>
+                        <input style="margin-left:180px" type="button" value="Forgot Passward" name="forgot" />
+                    </div>
                 </div>
             </div>
         </div>
