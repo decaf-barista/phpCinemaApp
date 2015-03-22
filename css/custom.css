@@ -440,7 +440,7 @@ a:hover
 }
 .footerLogos ul
 {
-	margin-left: 40px;
+	
 	margin-top: 50px;
 }
 .footer-nav ul li
@@ -607,4 +607,21 @@ a.divLink {
 .zui-table-horizontal tbody td {
     border-left: none;
     border-right: none;
+}
+.crud
+{
+    width: 30px;
+    padding:0px;
+}
+thead th
+{
+    font-size: 20px;
+}
+tbody td
+{
+    color: #333b49;
+}
+table
+{
+    margin-bottom: 40px;
 }

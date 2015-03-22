@@ -32,40 +32,43 @@ $statement = $gateway->getGenres();
     <body>
         <?php require 'toolbar.php' ?>
         <?php require 'navbar.php' ?>`
-        <?php 
+        <?php
         if (isset($message)) {
-            echo '<p>'.$message.'</p>';
+            echo '<p>' . $message . '</p>';
         }
         ?>
-        <table> <!--info table-->
-            <thead>
-                <tr>
-                    <th>Genre ID</th>
-                    <th>Genre Name</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $row = $statement->fetch(PDO::FETCH_ASSOC);
-                while ($row) {
-                    echo '<tr>';//gets the info from createScreenForm and inputs it to the table//
-                    echo '<td>' . $row['genreID'] . '</td>'; 
-                    echo '<td>' . $row['genreName'] . '</td>';
-                    echo '<td>' . $row['description'] . '</td>';
-                    echo '<td>'
-                    .'<a href="viewGenre.php?genreID=' .$row['genreID']. '">View</a> '
-                    .'<a class="deleteGenre" href="deleteGenre.php?genreID=' .$row['genreID']. '">Delete</a> '
-                    .'<a href="editGenreForm.php?genreID=' .$row['genreID']. '">Edit</a> '
-                    . '</td>';
-                    echo '</tr>';
-                    
+        <div class="container">
+            <a href="createGenreForm.php"><img src="Images/add.png" class="crud col-lg-offset-11 col-lg-1"></a>
+            <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-8 col-lg-offset-2"> <!--info table-->
+                <thead>
+                    <tr>
+                        <th>Genre ID</th>
+                        <th>Genre Name</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
-                }
-                ?>
-            </tbody>
-        </table>
-        <p><a href="createGenreForm.php">Create Genre</a></p>
+                    while ($row) {
+                        echo '<tr>'; //gets the info from createScreenForm and inputs it to the table//
+                        echo '<td>' . $row['genreID'] . '</td>';
+                        echo '<td>' . $row['genreName'] . '</td>';
+                        echo '<td>' . $row['description'] . '</td>';
+                        echo '<td>'
+                        . '<a href="viewGenre.php?genreID=' . $row['genreID'] . '"><img src="Images/view.png" class="crud"></a> '
+                        . '<a class="deleteGenre" href="deleteGenre.php?genreID=' . $row['genreID'] . '"><img src="Images/delete.png" class="crud"></a> '
+                        . '<a href="editGenreForm.php?genreID=' . $row['genreID'] . '"><img src="Images/edit.png" class="crud"></a> '
+                        . '</td>';
+                        echo '</tr>';
+
+                        $row = $statement->fetch(PDO::FETCH_ASSOC);
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
         <?php require 'footer.php' ?>
     </body>
 </html>

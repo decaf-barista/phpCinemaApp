@@ -11,7 +11,7 @@
         <div class="container">
             <div class="footerLogos">
                 <ul>
-                    <li class="col-lg-offset-3 col-lg-1 col-md-offset-3 col-md-1 col-sm-2 col-sm-offset-2 col-xs-2"><img src="Images/facebook.png" class="img-responsive"></li>
+                    <li class="col-lg-offset-4 col-lg-1 col-md-offset-3 col-md-1 col-sm-2 col-sm-offset-2 col-xs-2"><img src="Images/facebook.png" class="img-responsive"></li>
                     <li class="col-lg-1 col-md-1 col-sm-2 col-xs-2"><img src="Images/twitter.png" class="img-responsive"></li>
                     <li class="col-lg-1 col-md-1 col-sm-2 col-xs-2"><img src="Images/googlePlus.png" class="img-responsive"></li>
                     <li class="col-lg-1 col-md-1 col-sm-2 col-xs-2"><img src="Images/mail.png" class="img-responsive"></li>

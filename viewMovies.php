@@ -38,8 +38,10 @@ $statement = $gateway->getMovies();
             echo '<p>'.$message.'</p>';
         }
         ?>
-        <table> <!--info table-->
-            <thead>
+        <div class="container">
+            <a href="createMovieForm.php"><img src="Images/add.png" class="crud col-lg-offset-11 col-lg-1"></a>
+            <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-10 col-lg-offset-1"> <!--info table-->
+                <thead>
                 <tr>
                     <th>Movie ID</th>
                     <th>Title</th>
@@ -49,6 +51,7 @@ $statement = $gateway->getMovies();
                     <th>Director First Name</th>
                     <th>Director Last Name</th>
                     <th>Genre</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -65,18 +68,18 @@ $statement = $gateway->getMovies();
                     echo '<td>' . $row['directorLName'] . '</td>';
                     echo '<td>' . $row['genreName'] . '</td>';
                     echo '<td>'
-                    .'<a href="viewMovie.php?movieID=' .$row['movieID']. '">View</a> '
-                    .'<a class="deleteMovie" href="deleteMovie.php?movieID=' .$row['movieID']. '">Delete</a> '
-                    .'<a href="editMovieForm.php?movieID=' .$row['movieID']. '">Edit</a> '
+                    . '<a href="viewMovie.php?movieID=' . $row['movieID'] . '"><img src="Images/view.png" class="crud"></a> '
+                    . '<a class="deleteMovie" href="deleteMovie.php?movieID=' . $row['movieID'] . '"><img src="Images/delete.png" class="crud"></a> '
+                    . '<a href="editMovieForm.php?movieID=' . $row['movieID'] . '"><img src="Images/edit.png" class="crud"></a> '
                     . '</td>';
                     echo '</tr>';
                     
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
                 }
                 ?>
-            </tbody>
-        </table>
-        <p><a href="createMovieForm.php">Create Movie</a></p>
+              </tbody>
+            </table>        
+        </div>
         <?php require 'footer.php' ?>
     </body>
 </html>

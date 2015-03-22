@@ -39,7 +39,7 @@ $statement = $gateway->getScreens();
         }
         ?>
         <div class="container">
-            <a href="createScreenForm.php"><img src="Images/add.png"></a>
+            <a href="createScreenForm.php"><img src="Images/add.png" class="crud col-lg-offset-11 col-lg-1"></a>
             <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-8 col-lg-offset-2"> <!--info table-->
                 <thead>
                     <tr>
@@ -58,9 +58,9 @@ $statement = $gateway->getScreens();
                         echo '<td>' . $row['seatNumber'] . '</td>';
                         echo '<td>' . $row['fireExits'] . '</td>';
                         echo '<td>'
-                        . '<a href="viewScreen.php?screenID=' . $row['screenID'] . '"><img src="Images/view.png"></a> '
-                        . '<a class="deleteScreen" href="deleteScreen.php?screenID=' . $row['screenID'] . '"><img src="Images/delete.png"></a> '
-                        . '<a href="editScreenForm.php?screenID=' . $row['screenID'] . '"><img src="Images/edit.png"></a> '
+                        . '<a href="viewScreen.php?screenID=' . $row['screenID'] . '"><img src="Images/view.png" class="crud"></a> '
+                        . '<a class="deleteScreen" href="deleteScreen.php?screenID=' . $row['screenID'] . '"><img src="Images/delete.png" class="crud"></a> '
+                        . '<a href="editScreenForm.php?screenID=' . $row['screenID'] . '"><img src="Images/edit.png" class="crud"></a> '
                         . '</td>';
                         echo '</tr>';
 
@@ -68,9 +68,7 @@ $statement = $gateway->getScreens();
                     }
                     ?>
                 </tbody>
-            </table>
-
-            
+            </table>        
         </div>
         <?php require 'footer.php' ?>
     </body>

@@ -1,5 +1,4 @@
 <?php
-require_once 'Admin.php';//acquires admin  class//
 require_once 'Connection.php';
 require_once 'AdminTableGateway.php';
 
