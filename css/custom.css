@@ -625,3 +625,38 @@ table
 {
     margin-bottom: 40px;
 }
+.classification
+{
+    width:40px;
+    margin-left: 30px;
+}
+.view p {
+  color: rgba(0,0,0,.4);
+  margin: 10px 0;
+  font-weight: 100;
+  font-size: 12px;
+  text-align: center;
+}
+
+.view span {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  display: inline-block;
+  width: 200px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(0,0,0,.5);
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  text-align: center;
+  margin-left: 84px;
+}
+.view span img
+{
+    margin-left: 0px;
+}
+.view
+{
+    background-color: white;
+    border: 5px black solid;    
+}

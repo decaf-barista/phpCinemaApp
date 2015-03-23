@@ -48,7 +48,7 @@ if ($directorLName === FALSE || $directorLName === '') {
 if (empty($errorMessage)) {
     $movieID = $gateway->insertMovie($title, $movieYear, $runTime, $classification, $directorFName, $directorLName, $genre);
 
-    header('Location: home.php');
+    header('Location: viewMovies.php');
 }
 else {
     require 'createMovieForm.php';

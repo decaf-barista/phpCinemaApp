@@ -40,7 +40,7 @@ $statement = $gateway->getMovies();
         ?>
         <div class="container">
             <a href="createMovieForm.php"><img src="Images/add.png" class="crud col-lg-offset-11 col-lg-1"></a>
-            <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-10 col-lg-offset-1"> <!--info table-->
+            <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-12"> <!--info table-->
                 <thead>
                 <tr>
                     <th>Movie ID</th>
@@ -48,8 +48,7 @@ $statement = $gateway->getMovies();
                     <th>Movie Year</th>
                     <th>Run Time</th>
                     <th>Classification</th>
-                    <th>Director First Name</th>
-                    <th>Director Last Name</th>
+                    <th>Director</th>
                     <th>Genre</th>
                     <th></th>
                 </tr>
@@ -63,9 +62,8 @@ $statement = $gateway->getMovies();
                     echo '<td>' . $row['title'] . '</td>';
                     echo '<td>' . $row['movieYear'] . '</td>';
                     echo '<td>' . $row['runTime'] . '</td>';
-                    echo '<td>' . $row['classification'] . '</td>';
-                    echo '<td>' . $row['directorFName'] . '</td>';
-                    echo '<td>' . $row['directorLName'] . '</td>';
+                    echo '<td><img src="Images/classifications/' . $row['classification'] . '.png" class="classification"></td>';
+                    echo '<td>' . $row['directorFName'] . ' ' . $row['directorLName'] .'</td>';
                     echo '<td>' . $row['genreName'] . '</td>';
                     echo '<td>'
                     . '<a href="viewMovie.php?movieID=' . $row['movieID'] . '"><img src="Images/view.png" class="crud"></a> '

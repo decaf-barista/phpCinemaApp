@@ -47,45 +47,43 @@ $statement = $gateway->getMovieById($movieID);
         echo '<p>'.$message.'</p>';
         }
         ?>
-        <table>
+        <div class="container">
+        <table class="view col-lg-4 col-lg-offset-4">
             <tbody>
                 <?php
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
                     echo '<tr>';
-                    echo '<td>Movie ID</td>' 
-                    . '<td>' . $row['movieID'] . '</td>';
+                    echo '<td><p>Movie ID</p><br>' 
+                    . '<span>' . $row['movieID'] . '</span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Title</td>' 
-                    . '<td>' . $row['title'] . '</td>';
+                    echo '<td><p>Title</p><br>' 
+                    . '<span>' . $row['title'] . '</span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Movie Year</td>' 
-                    . '<td>' . $row['movieYear'] . '</td>';
+                    echo '<td><p>Movie Year</p><br>' 
+                    . '<span>' . $row['movieYear'] . '</span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Run Time</td>' 
-                    . '<td>' . $row['runTime'] . '</td>';
+                    echo '<td><p>Run Time</p><br>' 
+                    . '<span>' . $row['runTime'] . '</span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Classification</td>' 
-                    . '<td>' . $row['classification'] . '</td>';
+                    echo '<td><p>Classification</p><br>' 
+                    . '<span><img src="Images/classifications/' . $row['classification'] . '.png" class="classification"></span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Director First Name</td>' 
-                    . '<td>' . $row['directorFName'] . '</td>';
+                    echo '<td><p>Director</p><br>' 
+                    . '<span>' . $row['directorFName'] . ' ' . $row['directorLName'] .'</span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Director Last Name</td>' 
-                    . '<td>' . $row['directorLName'] . '</td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td>Genre</td>' 
-                    . '<td>' . $row['genreName'] . '</td>';
+                    echo '<td><p>Genre</p><br>' 
+                    . '<span>' . $row['genreName'] . '</span></td>';
                     echo '</tr>';
                 ?>
             </tbody>
         </table>
+        </div>
         <p><a href="editMovieForm.php?movieID=<?php echo $row['movieID']; ?>">
                 Edit Movie</a>
             <a class="deleteMovie" href="deleteMovie.php?movieID=<?php echo $row['movieID']; ?>">
