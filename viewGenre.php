@@ -23,44 +23,43 @@ $statement = $gateway->getGenreByID($genreID);
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" type="text/css" href="custom.css"><!--css-->
+        <?php require 'styles.php' ?>
         <script type="text/javascript" src="js/genre.js"></script>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-       
+
         <?php require 'navbar.php' ?>
         <?php
         if (isset($message)) {
-        echo '<p>'.$message.'</p>';
+            echo '<p>' . $message . '</p>';
         }
-        ?>
-        <table>
-            <tbody>
-                <?php
-                    $row = $statement->fetch(PDO::FETCH_ASSOC);
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        ?><div class="container">
+            <p class="col-lg-3 col-lg-offset-7">
+                <a href="editGenreForm.php?genreID=<?php echo $row['genreID']; ?>"><img src="Images/edit.png" class="crud"></a>
+                <a class="deleteGenre" href="deleteGenre.php?genreID=<?php echo $row['genreID']; ?>"><img src="Images/delete.png" class="crud"></a>
+            </p>
+            <table class="view col-lg-4 col-lg-offset-4">
+                <tbody>
+                    <?php
                     echo '<tr>';
-                    echo '<td>Genre ID</td>' 
-                    . '<td>' . $row['genreID'] . '</td>';
+                    echo '<td><p>Genre ID</p><br>'
+                    . '<span>' . $row['genreID'] . '</span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Genre Name</td>' 
-                    . '<td>' . $row['genreName'] . '</td>';
+                    echo '<td><p>Genre Name</p><br>'
+                    . '<span>' . $row['genreName'] . '</span></td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td>Description</td>' 
-                    . '<td>' . $row['description'] . '</td>';
+                    echo '<td><p>Description</p><br>'
+                    . '<span>' . $row['description'] . '</span></td>';
                     echo '</tr>';
-                ?>
-            </tbody>
-        </table>
-        <p><a href="editGenreForm.php?genreID=<?php echo $row['genreID']; ?>">
-                Edit Genre</a>
-            <a class="deleteGenre" href="deleteGenre.php?genreID=<?php echo $row['genreID']; ?>">
-                Delete Genre</a>
-        </p>
+                    ?>
+                </tbody>
+            </table>
+        </div>
         <?php require 'footer.php' ?>
+        <?php require 'scripts.php' ?>
     </body>
 </html>

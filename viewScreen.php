@@ -23,54 +23,44 @@ $statement = $gateway->getScreenById($screenID);
 <!DOCTYPE html>
 <html>
     <head>
-        <head>
-        <meta charset = "utf-8"><!--lets my browser read and display characters-->
-        <meta name="viewport" content="width=device-width initial-scale=1.0"><!--will scale for the different with of pages-->
-        <!--linking stylesheets-->
-        <link href="css/bootstrap.min.css" rel="stylesheet"><!--using .min so it will be faster, framework style sheet-->
-        <link href="css/custom.css" rel="stylesheet"><!--my own css file-->
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
-        <link rel="shortcut icon" href="Images/oscars.png"/>
-        <script src="js/respond.min.js"></script><!--what we downloaded from github needs to be in the head! otherwise not reposive-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <title>TAKE TWO</title>
+        <?php require 'styles.php' ?>
         <script type="text/javascript" src="js/screen.js"></script>
     </head>
-    </head>
-    <body>
-        <?php require 'toolbar.php' ?>
-        
-        <?php require 'navbar.php' ?>
-        <?php
-        if (isset($message)) {
-        echo '<p>'.$message.'</p>';
-        }
-        ?>
-        <table>
+<body>
+    <?php require 'toolbar.php' ?>
+
+    <?php require 'navbar.php' ?>
+    <?php
+    if (isset($message)) {
+        echo '<p>' . $message . '</p>';
+    }
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+    ?><div class="container">
+        <p class="col-lg-3 col-lg-offset-7">
+            <a href="editScreenForm.php?screenID=<?php echo $row['screenID']; ?>"><img src="Images/edit.png" class="crud"></a>
+            <a class="deleteScreen" href="deleteScreen.php?screenID=<?php echo $row['screenID']; ?>"><img src="Images/delete.png" class="crud"></a>
+        </p>
+        <table class="view col-lg-4 col-lg-offset-4">
             <tbody>
                 <?php
-                    $row = $statement->fetch(PDO::FETCH_ASSOC);
-                    echo '<tr>';
-                    echo '<td>Screen ID</td>' 
-                    . '<td>' . $row['screenID'] . '</td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td>Seat Numbers</td>' 
-                    . '<td>' . $row['seatNumber'] . '</td>';
-                    echo '</tr>';
-                    echo '<tr>';
-                    echo '<td>Fire Exits</td>' 
-                    . '<td>' . $row['fireExits'] . '</td>';
-                    echo '</tr>';
+                
+                echo '<tr>';
+                echo '<td><p>Screen ID</p><br>'
+                . '<span>' . $row['screenID'] . '</span></td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<td><p>Seat Numbers</p><br>'
+                . '<span>' . $row['seatNumber'] . '</span></td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<td><p>Fire Exits</p><br>'
+                . '<span>' . $row['fireExits'] . '</span></td>';
+                echo '</tr>';
                 ?>
             </tbody>
         </table>
-        <p><a href="editScreenForm.php?screenID=<?php echo $row['screenID']; ?>">
-                Edit Screen</a>
-            <a class="deleteScreen" href="deleteScreen.php?screenID=<?php echo $row['screenID']; ?>">
-                Delete Screen</a>
-        </p>
-        <?php require 'footer.php' ?>
-    </body>
+    </div>
+    <?php require 'footer.php' ?>
+    <?php require 'scripts.php' ?>
+</body>
 </html>

@@ -31,16 +31,16 @@ window.onload = function () {
             errors["movieYear"] = "Movie year cannot be empty\n";//adds error to array if fireExits is blank//
         }
         if (runTime === "") {
-            errors["runTime"] = "Movie year cannot be empty\n";//adds error to array if fireExits is blank//
+            errors["runTime"] = "Run time cannot be empty\n";//adds error to array if fireExits is blank//
         }
         if (classification === "") {
-            errors["classification"] = "Movie year cannot be empty\n";//adds error to array if fireExits is blank//
+            errors["classification"] = "Classification cannot be empty\n";//adds error to array if fireExits is blank//
         }
         if (directorFName === "") {
-            errors["directorFName"] = "Movie year cannot be empty\n";//adds error to array if fireExits is blank//
+            errors["directorFName"] = "Diorector first name cannot be empty\n";//adds error to array if fireExits is blank//
         }
         if (directorLName === "") {
-            errors["directorLName"] = "Movie year cannot be empty\n";//adds error to array if fireExits is blank//
+            errors["directorLName"] = "Director last name cannot be empty\n";//adds error to array if fireExits is blank//
         }
         
         var valid = true;

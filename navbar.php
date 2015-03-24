@@ -8,23 +8,20 @@
         </div>
     </div><!--end of row-->
     <div class="row">
-        <nav class="navbar" role="navigation">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" data-toggle = "collapse" data-target = "#navHeaderCollapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="navHeaderCollapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="viewMovies.php">MOVIES</a></li>
-                        <li><a href="viewScreens.php">SCREENS</a></li>
-                        <li><a href="viewGenres.php">GENRES</a></li>
-                    </ul>
-                </div>
+        <nav class="navbar navbar navbar-static-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#navHeaderCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navHeaderCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="viewMovies.php">MOVIES</a></li>
+                    <li><a href="viewScreens.php">SCREENS</a></li>
+                    <li><a href="viewGenres.php">GENRES</a></li>
+                </ul>
             </div>
         </nav>
     </div>
