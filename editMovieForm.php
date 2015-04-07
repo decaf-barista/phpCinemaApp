@@ -24,7 +24,8 @@ if ($movies->rowCount() !== 1) {
 }
 $movie = $movies->fetch(PDO::FETCH_ASSOC);
 
-$genres = $genreGateway->getGenres();
+$sortOrder = 'genreID';
+$genres = $genreGateway->getGenres($sortOrder);
 ?>
 <!DOCTYPE html>
 <html>
@@ -100,19 +101,21 @@ $genres = $genreGateway->getGenres();
                             <tr>
                                 <td class="col-lg-6"><h3>Classification</h3></td>
                                 <td class="col-lg-6">
-                                    <input class="input" type="text" name="classification" value="<?php
-                                    if (isset($_POST) && isset($_POST['classification'])) {
-                                        echo $_POST['classification'];
-                                    } else
-                                        echo $movie['classification'];
-                                    ?>" /><br>
-                                    <span id="classificationError" class="error"><!--inside span elements the error messages will be displayed-->
+                                    <select name="classification">
                                         <?php
-                                        if (isset($errorMessage) && isset($errorMessage['classification'])) {
-                                            echo $errorMessage['classification'];
-                                        }
+                                        $selected = "";
+                                            if ($movie['classification']) {
+                                                $selected = "selected";
+                                            }
+                                            echo '<option value="' . $movie['classification'] . '" ' . $selected . '>' . $movie['classification'] . '</option>';
                                         ?>
-                                    </span>
+                                        <option value="-1">Unknown</option>
+                                        <option value="12a">12a</option>
+                                        <option value="15a">15a</option>
+                                        <option value="18">18</option>
+                                        <option value="Pg">PG</option>
+                                        <option value="g">G</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>

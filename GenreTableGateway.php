@@ -21,11 +21,13 @@ class GenreTableGateway {
         return $genreStatement;       
     }
     
-    public function getGenres() {
+    public function getGenres($sortOrder) {
         //executes a query to get all of the genres
-        $sqlQuery = "SELECT * FROM genre";
+        $sqlQuery = "SELECT * FROM genre "
+                . "ORDER BY " . $sortOrder;
         
         $statement = $this->connection->prepare($sqlQuery);
+                
         $status = $statement->execute();
         
         if(!$status) {

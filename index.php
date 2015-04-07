@@ -11,7 +11,8 @@ if ($id == "") {
 $connection = Connection::getInstance();
 $gateway = new MovieTableGateway($connection);
 
-$statement = $gateway->getMovies();
+$sortOrder = 'movieID';
+$statement = $gateway->getMovies($sortOrder);
 ?>
 <!DOCTYPE html>
 <html>

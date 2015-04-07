@@ -21,6 +21,7 @@
                     <li><a href="viewMovies.php">MOVIES</a></li>
                     <li><a href="viewScreens.php">SCREENS</a></li>
                     <li><a href="viewGenres.php">GENRES</a></li>
+                    <li><a href="viewReviews.php">REVIEWS</a></li>
                 </ul>
             </div>
         </nav>

@@ -8,22 +8,21 @@ require 'ensureUserLoggedIn.php';
 <!DOCTYPE html>
 <html>
     <head>
-        <?php require 'styles.php' ?>
+        <?php require 'styles.php' ?><!--reference this in my head rather than have to copy every little thing-->
         <script type="text/javascript" src="js/genre.js"></script>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
         <?php require 'navbar.php' ?>
-
         <div class="window-bg">
             <div class="container">
                 <div class="row window col-lg-10 col-lg-offset-1">
                     <form class="form col-lg-offset-3 col-lg-6" id="createGenreForm" action="createGenre.php"  method="POST"><!--submits data to be processed in CreateGenre(php validation) and validateCreateGenre(js validation-->
                         <table border="0">
                             <tbody>
-                                <tr><h1 class="col-lg-10">Create Genre Form</h1></tr>
+                                <tr><h1 class="col-lg-10">Create Genre Form</h1></tr><!--table title-->
                             <tr>
-                                <td><h3 class="col-lg-6">Genre Name</h3></td>
+                                <td><h3 class="col-lg-6">Genre Name</h3></td><!--column name-->
                                 <td class="col-lg-6">
                                     <input class="input"type="text" name="genreName" value="" /><br>
                                     <span id="genreNameError" class="error"><!--inside span elements the error messages will be displayed-->
@@ -35,7 +34,7 @@ require 'ensureUserLoggedIn.php';
                                 </td>
                             </tr>
                             <tr>
-                                <td><h3 class="col-lg-6">Description</h3></td>
+                                <td><h3 class="col-lg-6">Description</h3></td><!--column name-->
                                 <td class="col-lg-6">
                                     <input class="input" type="text" name="description" value="" /><br>
                                     <span id="descriptionError" class="error"><!--inside span elements the error messages will be displayed-->
@@ -60,6 +59,6 @@ require 'ensureUserLoggedIn.php';
         </div>
     </div>
     <?php require 'footer.php' ?>    
-    <?php require 'scripts.php'; ?>
+    <?php require 'scripts.php'; ?><!--bootstrap script-->
 </body>
 </html>

@@ -9,10 +9,21 @@ if ($id == "") {
     session_start();
 }
 
+if (isset($_GET) && isset($_GET['sortOrder'])){
+    $sortOrder =$_GET['sortOrder'];
+    $columnNames = array("movieID", "title", "movieYear", "runTime", "classification", "directorLName", "genre");
+    if(!in_array($sortOrder, $columnNames)){
+        $sortOrder = 'movieID';
+    }
+}
+else{
+    $sortOrder = 'movieID';
+}
+
 $connection = Connection::getInstance();
 $gateway = new MovieTableGateway($connection);
 
-$statement = $gateway->getMovies();
+$statement = $gateway->getMovies($sortOrder);
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,13 +44,13 @@ $statement = $gateway->getMovies();
             <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-12"> <!--info table-->
                 <thead>
                 <tr>
-                    <th>Movie ID</th>
-                    <th>Title</th>
-                    <th>Movie Year</th>
-                    <th>Run Time</th>
-                    <th>Classification</th>
-                    <th>Director</th>
-                    <th>Genre</th>
+                    <th><a href="viewMovies.php?sortOrder=movieID">Movie ID</a></th>
+                    <th><a href="viewMovies.php?sortOrder=title">Title</a></th>
+                    <th><a href="viewMovies.php?sortOrder=movieYear">Movie Year</a></th>
+                    <th><a href="viewMovies.php?sortOrder=runTime">Run Time</a></th>
+                    <th><a href="viewMovies.php?sortOrder=classification">Classification</a></th>
+                    <th><a href="viewMovies.php?sortOrder=directorLName">Director</a></th>
+                    <th><a href="viewMovies.php?sortOrder=genre">Genre</a></th>
                     <th></th>
                 </tr>
             </thead>

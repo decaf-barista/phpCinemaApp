@@ -1,3 +1,5 @@
+/*level 1*/
+/*toolbar*/
 .login, .register
 {
     font-family: 'Ubuntu Condensed', sans-serif;
@@ -27,6 +29,7 @@ a:hover
     width: 100%;
     background-color: #efefef;
 }
+/*navbar*/
 .logo img
 {
     height:80px;
@@ -38,6 +41,10 @@ a:hover
 {
     font-family: 'Ubuntu', sans-serif;
     padding-left: 0;
+}
+/*this is the fix for no scroll bar inside collapsed navbar*/
+nav.navbar div#navHeaderCollapse {
+    overflow-y: visible;
 }
 /*nav sizes*/
 /*large device, wide screen*/
@@ -142,6 +149,7 @@ a:hover
 {
     border-color:#893d62;
 }
+/*hamburger icon*/
 .icon-bar
 {
     background-color:#893d62;
@@ -235,13 +243,11 @@ a:hover
         border: 3px solid #333b49;
     }
 }
-
-
 .col1
 {
     overflow: hidden;
 }
-
+/*buy ticket button*/
 .ticket
 {
     font-weight: bold;
@@ -250,7 +256,6 @@ a:hover
     text-align: center;
 
 }
-
 /*buy tickets button font size changes*/
 /*large*/
 @media(min-width: 1200px){
@@ -304,42 +309,6 @@ a:hover
 
     }
 }
-
-.movie_text/*getting this text to be above the red_image div but underneath the navigation bar without getting the background of the nav bar jump above the nav bar content*/ 
-{
-    background-color: transparent;
-    width:90%;
-    padding-left: 10px;
-    padding-top: 0px;
-}
-.movie_text h3
-{
-    color: #fff;
-    margin-top: -200px;
-}
-.movie_poster
-{
-    background-color: none;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    height: auto;
-    transition:background-color 500ms ease-out 0.5s;
-}
-.movie_poster:hover/*i ahd a lot of trouble trying to get the image to have a rollover style, i tried photoshopping the image(which didn't work and would have been messy. to trying to get the text div to the the one to have the red bg as the rollover style. i could not do this without css because the image change*/
-{
-    background-color: rgba(248, 67, 36, 0.6);/*ease in and out*/
-    transition: background-color 500ms ease-out 0.5s;
-}
-.movie_poster div div/*and what do you know i had even more trouble trying to get this to have a rollover style, this works really well in this case. i achieved what i set out to do*/
-{
-    visibility: hidden;
-    transition: visibility 500ms ease-out 0.5s;
-}
-.movie_poster:hover div div
-{
-    visibility: visible;
-    transition: visibility 500ms ease-out 0.5s;
-}
 /*end of main content*/
 /*start of footer*/
 /*newsletter footer*/
@@ -390,7 +359,7 @@ a:hover
         margin-top: 30px;
     }
 }
-/**/
+/*newsletter input box*/
 .newsletter div input
 {
     border: 3px solid #333b49;
@@ -408,9 +377,7 @@ a:hover
 @media(min-width: 576px){
     .newsletter div p
     {
-
         margin-left: 40px;
-
     }
 }
 @media(max-width: 575px){
@@ -420,6 +387,8 @@ a:hover
         margin-top: 30px;
     }
 }
+/*end  of newsletter footer*/
+/*start of footer links*/
 .footer-links
 {
     background-color: #333b49;
@@ -460,13 +429,15 @@ a:hover
 @media(max-width:569px){
     font-size: 21px;
 }
+/*end of footer*/
+/*end of level 1*/
 /*register page*/
 .window-bg
 {
     background-color: #333b49;
     width:100%;
-
 }
+/*instead of having a model window i improvised and instead created a design that looked like a wodel window*/
 .window
 {
     border: 10px solid black;
@@ -474,14 +445,15 @@ a:hover
     margin-top: 40px;
     margin-bottom: 60px;
 }
+/*style for all input boxes*/
 .input
 {
     border: 3px solid #893d62;
     font-family: 'Ubuntu Condensed', sans-serif;
     font-size: 18px;
-    width: 100%;
-    
+    width: 100%;    
 }
+/*title of any form*/
 .form h1
 {
     margin-top: 40px; 
@@ -489,15 +461,18 @@ a:hover
     font-size: 35px;
     color: black;
 }
+/*column heading of form*/
 .form h3
 {
     color:#8e8e8e;
     margin-bottom: 30px;
 }
+/*error message from form*/
 .form span
 {
     color: #8e8e8e;
 }
+/*confirmation buttons*/
 .submit, .regsubmit, .form-aside a, .login-aside input
 {
     background-color: white;
@@ -521,6 +496,18 @@ a:hover
 {
     margin-left: 120px; 
 }
+.edit-submit
+{
+    background-color: white;
+    border:3px solid black;
+    padding: 10px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 30px;
+    margin-left: 68px;
+}
+/*text beside login/register form pointing to different pages*/
 .form-aside h4, .login-aside h4
 {
     font-size:25px;
@@ -536,10 +523,9 @@ a:hover
     margin-top: 130px;
     margin-bottom: 25px;
 }
-.forgot input
-{
-    margin-left:15px;
-}
+/*end of register/login page*/
+/*start of home/dashboard page*/
+/*boxes that will contain my counting sql function*/
 .count
 {
     background-color: #333b49;
@@ -565,21 +551,6 @@ a:hover
 {
     font-size: 22px;
 }
-.welcome-bg
-{
-    background-color: #893d62;
-    color: white;
-    margin-bottom: 30px;
-}
-.welcome h1
-{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 40px;
-}
-.welcome h4
-{
-    font-family: 'Georgia', serif;
-}
 div.count {
     position: relative;
     padding: 20px;    
@@ -597,6 +568,24 @@ a.divLink {
     text-decoration: none;
     /* Makes sure the link doesn't get underlined */
 }
+/*welcome message on top of dashboard page*/
+.welcome-bg
+{
+    background-color: #893d62;
+    color: white;
+    margin-bottom: 30px;
+}
+.welcome h1
+{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 40px;
+}
+.welcome h4
+{
+    font-family: 'Georgia', serif;
+}
+/*view table pages*/
+/*table css*/
 .zui-table {
     border: solid 1px #a7708b;
     border-collapse: collapse;
@@ -624,11 +613,6 @@ a.divLink {
     border-left: none;
     border-right: none;
 }
-.crud
-{
-    width: 30px;
-    padding:0px;
-}
 thead th
 {
     font-size: 20px;
@@ -641,11 +625,20 @@ table
 {
     margin-bottom: 40px;
 }
+/*end of table css*/
+/*small thumbnail images that point to the corresponding crud pages*/
+.crud
+{
+    width: 30px;
+    padding:0px;
+}
+
 .classification
 {
     width:40px;
     margin-left: 30px;
 }
+/*view one item page*/
 .view p {
     color: rgba(0,0,0,.4);
     margin: 10px 0;
@@ -677,6 +670,8 @@ table
     background-color: white;
     border: 5px black solid;    
 }
+/*end of view one item page*/
+/*styling for all option boxes*/
 select {
     width: 100%;
     height: 34px;
@@ -688,19 +683,3 @@ select {
     font-size: 18px;
     
 }
-.edit-submit
-{
-    background-color: white;
-    border:3px solid black;
-    padding: 10px 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 30px;
-    margin-left: 68px;
-}
-
-nav.navbar div#navHeaderCollapse {
-    overflow-y: visible;
-}
- 

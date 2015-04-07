@@ -8,10 +8,21 @@ if ($id == "") {
     session_start();
 }
 
+if (isset($_GET) && isset($_GET['sortOrder'])){
+    $sortOrder =$_GET['sortOrder'];
+    $columnNames = array("screenID", "seatNumber", "fireExits");
+    if(!in_array($sortOrder, $columnNames)){
+        $sortOrder = 'screenID';
+    }
+}
+else{
+    $sortOrder = 'screenID';
+}
+
 $connection = Connection::getInstance();
 $gateway = new ScreenTableGateway($connection);
 
-$statement = $gateway->getScreens();
+$statement = $gateway->getScreens($sortOrder);
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,9 +44,9 @@ $statement = $gateway->getScreens();
             <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-8 col-lg-offset-2"> <!--info table-->
                 <thead>
                     <tr>
-                        <th>Screen ID</th>
-                        <th>Number of Seats</th>
-                        <th>Number of Fire Exits</th>
+                        <th><a href="viewScreens.php?sortOrder=screenID">Screen ID</a></th>
+                        <th><a href="viewScreens.php?sortOrder=seatNumber">Number of Seats</a></th>
+                        <th><a href="viewScreens.php?sortOrder=fireExits">Number of Fire Exits</a></th>
                         <th></th>
                     </tr>
                 </thead>

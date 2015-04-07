@@ -8,10 +8,20 @@ if ($id == "") {
     session_start();
 }
 
+if (isset($_GET) && isset($_GET['sortOrder'])){
+    $sortOrder =$_GET['sortOrder'];
+    $columnNames = array("genreID", "genreName", "description");
+    if(!in_array($sortOrder, $columnNames)){
+        $sortOrder = 'genreID';
+    }
+}
+else{
+    $sortOrder = 'genreID';
+}
 $connection = Connection::getInstance();
 $gateway = new GenreTableGateway($connection);
 
-$statement = $gateway->getGenres();
+$statement = $gateway->getGenres($sortOrder);
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,9 +42,9 @@ $statement = $gateway->getGenres();
             <table class="zui-table zui-table-horizontal zui-table-highlight col-lg-8 col-lg-offset-2"> <!--info table-->
                 <thead>
                     <tr>
-                        <th>Genre ID</th>
-                        <th>Genre Name</th>
-                        <th>Description</th>
+                        <th><a href="viewGenres.php?sortOrder=genreID">Genre ID</a></th>
+                        <th><a href="viewGenres.php?sortOrder=genreName">Genre Name</a></th>
+                        <th><a href="viewGenres.php?sortOrder=description">Description</a></th>
                         <th></th>
                     </tr>
                 </thead>

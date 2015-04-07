@@ -21,10 +21,11 @@ class MovieTableGateway {
         return $movieStatement;       
     }
     
-    public function getMovies() {
+    public function getMovies($sortOrder) {
         //executes a query to get all of the movies
         $sqlQuery = "SELECT m.*,g.genreName FROM movie m
-        LEFT JOIN genre g ON g.genreID = m.genre";
+        LEFT JOIN genre g ON g.genreID = m.genre "
+                . "ORDER BY " . $sortOrder;
         
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();

@@ -19,10 +19,10 @@
             </div>
             <div class="footer-nav">
                 <ul class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <li class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-3 col-xs-3"><a href="index.php">HOME</a></li>
-                    <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3"><a href="viewMovies.php">MOVIES</a></li>
+                    <li class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-3 col-xs-3"><a href="viewMovies.php">MOVIES</a></li>
                     <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3"><a href="viewScreens.php">SCREENS</a></li>
-                    <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3" style="border-right:none"><a href="viewGenres.php">GENRES</a></li>
+                    <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3"><a href="viewGenres.php">GENRES</a></li>
+                    <li class="col-lg-2 col-md-2 col-sm-3 col-xs-3" style="border-right:none"><a href="viewReviews.php">REVIEWS</a></li>
                 </ul>
             </div>
         </div>

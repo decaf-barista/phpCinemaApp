@@ -19,9 +19,10 @@ class ScreenTableGateway {
         
         return $statementScreen;       
     }
-    public function getScreens() {
+    public function getScreens($sortOrder) {
         //executes a query to get all of the screens
-        $sqlQuery = "SELECT * FROM screen";
+        $sqlQuery = "SELECT * FROM screen "
+                . "ORDER BY " . $sortOrder;
         
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
