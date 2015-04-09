@@ -11,7 +11,7 @@ if ($id == "") {
 
 if (isset($_GET) && isset($_GET['sortOrder'])){
     $sortOrder =$_GET['sortOrder'];
-    $columnNames = array("reviewID", "reviewID", "rating", "reviewContent");
+    $columnNames = array("reviewID", "movieID", "rating", "reviewContent");
     if(!in_array($sortOrder, $columnNames)){
         $sortOrder = 'reviewID';
     }
@@ -57,8 +57,8 @@ $statement = $gateway->getReviews($sortOrder);
                 while ($row) {
                     echo '<tr>';//gets the info from createReviewForm and inputs it to the table// 
                     echo '<td>' . $row['reviewID'] . '</td>';
-                    echo '<td>' . $row['movieID'] . '</td>';
-                    echo '<td>' . $row['rating'] . '</td>';
+                    echo '<td>' . $row['title'] . '</td>';
+                    echo '<td><img src ="Images/' . $row['rating'] . '.png"></td>';
                     echo '<td>' . $row['reviewContent'] . '</td>';
                     echo '<td>'
                     . '<a href="viewReview.php?reviewID=' . $row['reviewID'] . '"><img src="Images/view.png" class="crud"></a> '

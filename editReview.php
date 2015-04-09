@@ -21,12 +21,12 @@ if ($reviewContent === FALSE || $reviewContent === '') {
 }
 
 if (empty($errorMessage)) {
-    $gateway->insertReview($movieID, $rating , $reviewContent);
+    $reviewID = $gateway->insertReview($movieID, $rating , $reviewContent);
 
     header('Location: viewReviews.php');
 }
 else {
-    require 'editReviewForm.php';
+    require 'createReviewForm.php';
 }
 
 

@@ -18,5 +18,5 @@ $movieID = $_GET['movieID'];
 
 $gateway->deleteMovie($movieID);
 
-header("Location: home.php")
+header("Location: viewMovies.php")
 ?>

@@ -18,5 +18,5 @@ $screenID = $_GET['screenID'];
 
 $gateway->deleteScreen($screenID);
 
-header("Location: home.php")
+header("Location: viewScreens.php")
 ?>
