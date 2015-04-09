@@ -11,6 +11,7 @@ if ($id == "") {
     session_start();
 }
 
+$reviewID= filter_input(INPUT_POST, 'reviewID',FILTER_SANITIZE_NUMBER_INT);
 $movieID = filter_input(INPUT_POST, 'movieID', FILTER_SANITIZE_STRING);
 $rating = filter_input(INPUT_POST, 'rating', FILTER_SANITIZE_NUMBER_INT);
 $reviewContent = filter_input(INPUT_POST, 'reviewContent', FILTER_SANITIZE_STRING);
@@ -21,12 +22,12 @@ if ($reviewContent === FALSE || $reviewContent === '') {
 }
 
 if (empty($errorMessage)) {
-    $reviewID = $gateway->insertReview($movieID, $rating , $reviewContent);
+    $gateway->updateReview($reviewID, $movieID, $rating , $reviewContent);
 
     header('Location: viewReviews.php');
 }
 else {
-    require 'createReviewForm.php';
+    require 'editReviewForm.php';
 }
 
 

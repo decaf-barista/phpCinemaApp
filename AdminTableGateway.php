@@ -10,8 +10,7 @@ class AdminTableGateway {
     }
 
     public function getAdminByUsername($username) {
-        //execue a query to get the screen with the specific screen number
-        $sqlQuery = "SELECT * FROM admins WHERE username = :username";
+        //execue a query to get the screen with the specific admin username
         
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
@@ -27,7 +26,7 @@ class AdminTableGateway {
        return $statement;
     }
     public function insertAdmin($username, $password) {
-        //execue a query to get the screen with the specific screen number
+        //inserts new admin into Admins table
         $sqlInsert = "INSERT admins(username, password) "
             . "VALUES (:username, :password)";
         

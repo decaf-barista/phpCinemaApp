@@ -33,7 +33,7 @@ $movies = $movieGateway->getMovies($sortOrder);
                             <tr>
                                 <td><h3 class="col-lg-6">Movie</h3></td><!--column name-->
                                 <td class="col-lg-6">
-                                    <select name="movieID">
+                                    <select name="movieID"><!--drop down menu which display the title of all the movies in my system-->
                                         <?php
                                         $m = $movies->fetch(PDO::FETCH_ASSOC);
                                         while ($m) {
@@ -47,7 +47,7 @@ $movies = $movieGateway->getMovies($sortOrder);
                             <tr>
                                 <td><h3 class="col-lg-6">Rating</h3></td><!--column name-->
                                 <td class="col-lg-6">
-                                    <select name="rating">
+                                    <select name="rating"><!--simple drop down menu on the view pages will display image rather than text, don't want user to put in a value outside the bounds of my 5 star system-->
                                         <option value="1">1 Star</option>
                                         <option value="2">2 Stars</option>
                                         <option value="3">3 Stars</option>

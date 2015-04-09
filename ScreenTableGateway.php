@@ -8,26 +8,27 @@ class ScreenTableGateway {
         $this->connection = $c;
     }
     public function countScreens() {
+        //this function counts the rows in my table
         $sqlQuery = "SELECT COUNT(*) FROM screen;";
                 
-        $statementScreen = $this->connection->prepare($sqlQuery);
-        $status = $statementScreen->execute();
+        $screenStatement = $this->connection->prepare($sqlQuery);
+        $status = $screenStatement->execute();
         
-        if(!$status) {
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
             die("Could not retrieve screens");
         }
         
-        return $statementScreen;       
+        return $screenStatement;       
     }
     public function getScreens($sortOrder) {
         //executes a query to get all of the screens
         $sqlQuery = "SELECT * FROM screen "
-                . "ORDER BY " . $sortOrder;
+                . "ORDER BY " . $sortOrder;//also has sortOrder that has a value of screenID
         
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
         
-        if(!$status) {
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
             die("Could not retrieve screens");
         }
         
@@ -40,12 +41,12 @@ class ScreenTableGateway {
         $sqlQuery = "SELECT * FROM screen WHERE screenID = :screenID";
         
         $statement = $this->connection->prepare($sqlQuery);
-        $params = array(
+        $params = array(//defining the place holders
             "screenID" => $screenID
         );
        $status = $statement->execute($params); 
        
-       if(!$status) {
+       if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
            die("Could not retrieve screen");
        }
        
@@ -57,13 +58,13 @@ class ScreenTableGateway {
             . "VALUES (:seatNumber, :fireExits)";
         
         $statement = $this->connection->prepare($sqlInsert);
-        $params = array(
+        $params = array(//defining the place holders
             "seatNumber" => $seatNumber,
             "fireExits" => $fireExits
         );
        $status = $statement->execute($params); 
        
-       if(!$status) {
+       if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
            die("Could not insert new screen");
        }
        $id = $this->connection->lastInsertId();
@@ -76,13 +77,13 @@ class ScreenTableGateway {
         $sqlDelete = "DELETE FROM screen WHERE screenID = :screenID";
         
         $statement = $this->connection->prepare($sqlDelete);
-        $params = array (
+        $params = array (//defining the place holders
             "screenID" => $screenID         
         );
         
         $status = $statement->execute($params);
        
-        if(!$status) {
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
             die("Could not delete screen");
         }
         
@@ -96,7 +97,7 @@ class ScreenTableGateway {
                 "WHERE screenID = :screenID";
         
         $statement = $this->connection->prepare($sqlQuery);
-        $params = array(
+        $params = array(//defining the place holders
             
             "screenID" => $id,
             "seatNumber" => $sn,
@@ -106,6 +107,10 @@ class ScreenTableGateway {
         
         $status = $statement->execute($params);
         
-        return($statement->rowCount() ==1);
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
+           die("Could not update screen");
+       }
+        
+        return($statement->rowCount() == 1);
     }
 }

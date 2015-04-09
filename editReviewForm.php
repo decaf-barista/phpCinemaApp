@@ -109,7 +109,7 @@ $movies = $movieGateway->getMovies($sortOrder);
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input class="edit-submit" type="submit" value="Update Movie" name="updateMovie" />
+                                    <input class="edit-submit" type="submit" value="Update Review" name="updateReview" />
                                 </td>
                             </tr>
                             </tbody>

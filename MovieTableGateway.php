@@ -9,12 +9,13 @@ class MovieTableGateway {
     }
     
      public function countMovies() {
+         //this function counts the rows in my table
         $sqlQuery = "SELECT COUNT(*) FROM movie;";
                 
         $movieStatement = $this->connection->prepare($sqlQuery);
         $status = $movieStatement->execute();
         
-        if(!$status) {
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
             die("Could not retrieve movies");
         }
         
@@ -25,12 +26,13 @@ class MovieTableGateway {
         //executes a query to get all of the movies
         $sqlQuery = "SELECT m.*,g.genreName FROM movie m
         LEFT JOIN genre g ON g.genreID = m.genre "
-                . "ORDER BY " . $sortOrder;
+                . "ORDER BY " . $sortOrder;//also has sortOrder that has a value of movieID
+        //left join to genre table and displays genre name
         
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
         
-        if(!$status) {
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
             die("Could not retrieve movies");
         }
         
@@ -42,14 +44,15 @@ class MovieTableGateway {
         //execue a query to get the movie with the specific movie number
         $sqlQuery = "SELECT m.*,g.genreName FROM movie m
         LEFT JOIN genre g ON g.genreID = m.genre WHERE movieID = :movieID";
+        //left join to genre table and displays genre name
         
         $statement = $this->connection->prepare($sqlQuery);
-        $params = array(
+        $params = array(//defining the place holders
             "movieID" => $movieID
         );
        $status = $statement->execute($params); 
        
-       if(!$status) {
+       if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
            die("Could not retrieve movie");
        }
        
@@ -60,7 +63,7 @@ class MovieTableGateway {
             . "VALUES (:title, :movieYear, :runTime, :classification, :directorFName, :directorLName, :genre)";
         
         $statement = $this->connection->prepare($sqlInsert);
-        $params = array(
+        $params = array(//defining the place holders
             "title" => $title,
             "movieYear" => $movieYear,
             "runTime"=>$runTime,
@@ -71,7 +74,7 @@ class MovieTableGateway {
         );
        $status = $statement->execute($params); 
        
-       if(!$status) {
+       if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
            die("Could not insert new movie");
        }
        $movieID = $this->connection->lastInsertId();
@@ -84,13 +87,13 @@ class MovieTableGateway {
         $sqlDelete = "DELETE FROM movie WHERE movieID = :movieID";
         
         $statement = $this->connection->prepare($sqlDelete);
-        $params = array (
+        $params = array (//defining the place holders
             "movieID" => $movieID         
         );
         
         $status = $statement->execute($params);
        
-        if(!$status) {
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
             die("Could not delete movie");
         }
         
@@ -108,7 +111,7 @@ class MovieTableGateway {
                 "genre = :genre " .
                 "WHERE movieID = :movieID";
         $statement = $this->connection->prepare($sqlQuery);
-        $params = array(
+        $params = array(//defining the place holders
             "movieID"=> $id,
             "title" => $t,
             "movieYear" => $my,
@@ -121,8 +124,8 @@ class MovieTableGateway {
         
         $status = $statement->execute($params);
         
-        if(!$status) {
-           die("Could not insert new movie");
+        if(!$status) {//error message. if there is something wrong with the values going into table then shows specific error. if only this error message then something wrong with SQL
+           die("Could not update movie");
        }
         
         return($statement->rowCount() == 1);
