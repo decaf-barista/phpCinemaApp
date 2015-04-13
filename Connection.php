@@ -6,10 +6,10 @@ class Connection {
     public static function getInstance(){
         if(Connection::$connection===NULL){
             //connect to database
-            $host = "localhost";
-            $database = "amy";
-            $username = "root";
-            $password = "";
+            $host = "daneel";
+            $database = "n00130270";
+            $username = "N00130270";
+            $password = "N00130270";
             
             $dsn = "mysql:host=" . $host . ";dbname=" . $database;
             Connection::$connection = new PDO($dsn, $username, $password);

@@ -5,6 +5,6 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:700' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" href="images/oscars.png"/>
-<script src="js/respond.min.js"></script><!--what we downloaded from github needs to be in the head! otherwise not reposive-->
+<script src="js/respond.js"></script><!--what we downloaded from github needs to be in the head! otherwise not reposive-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>TAKE TWO</title>

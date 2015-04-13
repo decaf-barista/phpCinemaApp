@@ -10,7 +10,8 @@ class AdminTableGateway {
     }
 
     public function getAdminByUsername($username) {
-        //execue a query to get the screen with the specific admin username
+        //execue a query to get the admin with the specific admin username
+        $sqlQuery = "SELECT * FROM admins WHERE username = :username";
         
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(

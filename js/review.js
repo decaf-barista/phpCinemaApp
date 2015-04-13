@@ -20,7 +20,7 @@ window.onload = function () {
         var errors = new Object();
 
         if (reviewContent === "") {
-            errors["reviewContent"] = "Review year cannot be empty\n";//adds error to array if fireExits is blank//
+            errors["reviewContent"] = "Review cannot be empty\n";//adds error to array if fireExits is blank//
         }
                 
         var valid = true;
