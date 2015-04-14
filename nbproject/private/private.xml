@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/ReviewTableGateway.php</file>
-            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/AdminTableGateway.php</file>
-            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/styles.php</file>
-            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/scripts.php</file>
-            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/Connection.php</file>
-            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/js/screen.js</file>
+            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/viewMovies.php</file>
+            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/MovieTableGateway.php</file>
+            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/deleteReview.php</file>
+            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/createReviewForm.php</file>
+            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/js/review.js</file>
+            <file>file:/N:/Web%20programming/CinemaWebApp%20N00130270/CinemaWebApp%20N00130270/CinemaWebApp/createReview.php</file>
         </group>
     </open-files>
 </project-private>

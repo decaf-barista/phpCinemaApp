@@ -18,6 +18,8 @@ $movieYear = filter_input(INPUT_POST, 'movieYear', FILTER_SANITIZE_NUMBER_INT);
 $runTime = filter_input(INPUT_POST, 'runTime', FILTER_SANITIZE_NUMBER_INT);
 $directorFName = filter_input(INPUT_POST, 'directorFName', FILTER_SANITIZE_STRING);
 $directorLName = filter_input(INPUT_POST, 'directorLName', FILTER_SANITIZE_STRING);
+$genre = filter_input(INPUT_POST, 'genre', FILTER_SANITIZE_NUMBER_INT);
+$classification = filter_input(INPUT_POST, 'classification', FILTER_SANITIZE_STRING);
 
 if ($genre == -1) {
     $genre = NULL;
